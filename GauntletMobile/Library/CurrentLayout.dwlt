@@ -45,7 +45,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 64
+  controlID: 9
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -89,8 +89,8 @@ MonoBehaviour:
     y: 0
     width: 316
     height: 494
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 65
+  controlID: 10
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 45
+  controlID: 11
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -259,7 +259,7 @@ MonoBehaviour:
   - {fileID: 15}
   - {fileID: 16}
   m_Selected: 0
-  m_LastSelected: 0
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -298,19 +298,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts/Pickups
+    - Assets/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Pickups
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Denver Boyer\Desktop\GauntletMobile\GauntletMobile
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 1}
-    m_SelectedIDs: c0280000
-    m_LastClickedID: 10432
-    m_ExpandedIDs: 00000000be270000ca2700002428000000ca9a3bffffff7f
+    m_SelectedIDs: 5a260000
+    m_LastClickedID: 9818
+    m_ExpandedIDs: 00000000322600005a2600006626000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -338,7 +338,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000be270000
+    m_ExpandedIDs: 00000000322600005a26000066260000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -454,9 +454,9 @@ MonoBehaviour:
     height: 473
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: a86fffffb2fbffff00000000
+    m_SelectedIDs: 82260000
+    m_LastClickedID: 9858
+    m_ExpandedIDs: e496fbff6ef6ffff18fcffff1afcffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -506,14 +506,14 @@ MonoBehaviour:
     width: 725
     height: 473
   m_SceneLighting: 1
-  lastFramingTime: 1999.2060130217747
+  lastFramingTime: 1050.5318191115546
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.09048845, y: -1.2295238, z: -0.03308519}
+    m_Target: {x: 0.876266, y: 0.10057968, z: 0}
     speed: 2
-    m_Value: {x: 0.09048845, y: -1.2295238, z: -0.03308519}
+    m_Value: {x: 0.876266, y: 0.10057968, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -540,9 +540,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 22
+    m_Target: 4.086895
     speed: 2
-    m_Value: 22
+    m_Value: 4.086895
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -575,7 +575,7 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 380
+    x: 318
     y: 92
     width: 725
     height: 473
