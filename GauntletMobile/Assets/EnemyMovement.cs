@@ -39,13 +39,11 @@ public class EnemyMovement : MonoBehaviour {
             self.LookAt(target);
             if (IsInMaxRange())
             {
-                Debug.Log("in max range");
                 self.position += self.forward * moveSpeed * Time.deltaTime;
                 inRange = false;
             }
             if (Vector3.Distance(self.position, target.position) < minDist)
             {
-                Debug.Log("in min range");
                 self.position -= self.forward * moveSpeed * Time.deltaTime;
                 inRange = false;
             }
