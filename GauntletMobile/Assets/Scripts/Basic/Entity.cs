@@ -5,7 +5,8 @@ using UnityEngine;
 public abstract class Entity : MonoBehaviour {
 
     [SerializeField]
-    int health;
+    protected double maxHealth;
+    protected double currentHealth;
     [SerializeField]
     int damage;
     [Tooltip("If Entity uses projectiles this range will be sent to the projectile")]
@@ -17,13 +18,9 @@ public abstract class Entity : MonoBehaviour {
 
     public abstract bool AutoAttack();
     
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    
+    public virtual void UpdateHealth(int change)
+    {
+        currentHealth += change;
+    }
 }
