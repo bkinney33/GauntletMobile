@@ -10,7 +10,7 @@ public class Slayer : Class {
         return true;
     }
 
-    public override bool SpecialAttack()
+    public override bool SpecialSkill()
     {
         return true;
     }

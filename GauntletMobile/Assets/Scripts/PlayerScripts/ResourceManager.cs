@@ -11,6 +11,7 @@ public class ResourceManager : MonoBehaviour {
 
     public void UpdateHealth(double percent)
     {
+
         healthBar.fillAmount = (float)percent;
     }
     public void UpdateMana(double percent)
