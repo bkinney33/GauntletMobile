@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityStandardAssets.CrossPlatformInput;
 public class PlayerMovement : MonoBehaviour {
 
     [Tooltip("How Fast the Player Moves.")]
@@ -23,8 +23,8 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Movement()
     {
-        float h = playerSpeed * Input.GetAxis("Horizontal");
-        float v = playerSpeed * Input.GetAxis("Vertical");
+        float h = playerSpeed * CrossPlatformInputManager.GetAxis("Horizontal");
+        float v = playerSpeed * CrossPlatformInputManager.GetAxis("Vertical");
         rigidBody.velocity = (new Vector2(h, v));
         
     }
