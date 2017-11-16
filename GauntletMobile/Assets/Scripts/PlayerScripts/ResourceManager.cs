@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResourceManager : MonoBehaviour {
 
@@ -19,5 +21,9 @@ public class ResourceManager : MonoBehaviour {
         manaBar.fillAmount = (float)percent;
     }
 
-
+    internal void SetBars(Image health, Image resource)
+    {
+        healthBar = health;
+        manaBar = resource;
+    }
 }

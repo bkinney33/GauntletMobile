@@ -5,18 +5,31 @@ using UnityEngine;
 
 
 public class Juggernaut : Class {
-    public bool isInvincible = false;
+    bool isInvincible = false;
+    [Header("Rage Settings", order = 1)]
     [Tooltip("Cost to rage per second. Base values indicate the player must kill a creature once every 5 seconds to maintain rage.")]
     [SerializeField]
     short rageCostPerSecond = 1;
     [SerializeField]
     [Tooltip("Limiter on rage gain per kill increasing or decreasing this value without editing rage cost will change the ease of maintaining rage.")]
     short rageGainOnKill = 5;
-    public float lastTick;
+    float lastTick;
 
     public override bool AutoAttack()
     {
-        throw new NotImplementedException();
+        Debug.Log("Auto On.");
+        GameObject collider = gameObject.transform.Find("AttackCollider").gameObject;
+        collider.SetActive(true);
+        StartCoroutine(TurnOffAttackCollider());
+        return true;
+    }
+
+    IEnumerator TurnOffAttackCollider()
+    {
+        yield return new WaitForSeconds(autoAttackSpeed);
+        GameObject collider = gameObject.transform.Find("AttackCollider").gameObject;
+        collider.SetActive(false);
+        Debug.Log("Auto Off.");
     }
 
     public override bool SpecialSkill()
@@ -29,8 +42,7 @@ public class Juggernaut : Class {
      
     // Use this for initialization
     void Start () {
-        currentHealth = maxHealth;
-        currentClassResource = maxClassResource;
+        base.Start();
     }
 
     public override void UpdateHealth(int change, UpdateType typeOfChange)
@@ -49,11 +61,9 @@ public class Juggernaut : Class {
 
     // Update is called once per frame
     void Update () {
+        base.Update();
         if (isInvincible) { WhileRaging(); }
-        if(Input.GetButtonUp("SpecialSkill"))
-        {
-            SpecialSkill();
-        }
+
     }
 
     private void WhileRaging()

@@ -24,15 +24,19 @@ public class EnemyMovement : MonoBehaviour {
     float moveSpeed;
     bool inRange;
     // Use this for initialization
-    void Start () {
-
-        //set target to player
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+    void Start ()
+    {
 	}
+
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        if(target == null) { return; }
         if (IsInAggroRange())
         {
             inRange = true;
@@ -52,7 +56,6 @@ public class EnemyMovement : MonoBehaviour {
     private bool IsInAggroRange()
     {
         float dist = Vector3.Distance(self.position, target.position);
-        Debug.Log("Aggro Range Function: Current Range: " + dist);
         return dist <= aggroRange ? true : false;
     }
     private bool IsInMaxRange()

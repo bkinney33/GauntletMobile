@@ -28,6 +28,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1381619475326324
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4786328511267716}
+  - component: {fileID: 60104419039191814}
+  - component: {fileID: 114208972588517066}
+  m_Layer: 0
+  m_Name: AttackCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1678536665479114
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,7 +59,7 @@ GameObject:
   - component: {fileID: 114779462382852446}
   m_Layer: 0
   m_Name: Juggernaut
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,6 +95,7 @@ Transform:
   m_Children:
   - {fileID: 4500056363837726}
   - {fileID: 4099962387041360}
+  - {fileID: 4786328511267716}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -106,6 +124,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4086567748483232}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4786328511267716
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1381619475326324}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4086567748483232}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &20507851358880108
 Camera:
@@ -178,6 +209,36 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.08967161
+--- !u!60 &60104419039191814
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1381619475326324}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.10567739, y: -0.20434421}
+      - {x: 0.075174816, y: -0.041614383}
+      - {x: -0.0018216446, y: -0.09009075}
+      - {x: -0.07771654, y: -0.035663873}
+      - {x: -0.114163056, y: -0.213118}
+      - {x: -0.0017428473, y: -0.27076355}
 --- !u!81 &81453513338308578
 AudioListener:
   m_ObjectHideFlags: 1
@@ -185,6 +246,18 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1810265965811182}
   m_Enabled: 1
+--- !u!114 &114208972588517066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1381619475326324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4614d2441020e364898bfa4fdf66e0dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 114779462382852446}
 --- !u!114 &114248862392668588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -196,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eab588569a7355418cf40a479e0f71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 3
+  playerSpeed: 5
 --- !u!114 &114779462382852446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,6 +281,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a24444de30242bd4c9231745146c1e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
+  damage: 3
+  autoAttackSpeed: 1
+  maxClassResource: 10
+  currentClassResource: 0
+  rageCostPerSecond: 1
+  rageGainOnKill: 5
 --- !u!114 &114861897633136216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,8 +310,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b7d0966c0f09947b1e06dd1458ee94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  manaBar: {fileID: 0}
+  healthBar: {fileID: 114207632263331624, guid: ee63a7e22497f884a9ad373b9d04a01c,
+    type: 2}
+  manaBar: {fileID: 114013885723711368, guid: ee63a7e22497f884a9ad373b9d04a01c, type: 2}
 --- !u!124 &124413377598611408
 Behaviour:
   m_ObjectHideFlags: 1

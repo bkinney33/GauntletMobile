@@ -6,11 +6,10 @@ using UnityEngine;
 [RequireComponent(typeof(ResourceManager))]
 public abstract class Class : Entity {
     
+    [Header("Resource Settings", order = 2)]
     [SerializeField]
     protected double maxClassResource;
-    protected double currentClassResource;
-    [SerializeField]
-    string className;
+    public double currentClassResource;
 
     public abstract bool SpecialSkill();
 
@@ -47,13 +46,21 @@ public abstract class Class : Entity {
         gameObject.GetComponent<ResourceManager>().UpdateMana(currentClassResource / maxClassResource);
     }
 
+    protected void Start()
+    {
+        currentHealth = maxHealth;
+        currentClassResource = maxClassResource;
+    }
 
-    // Use this for initialization
-    void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    internal void Update()
+    {
+        if (Input.GetButtonUp("SpecialSkill"))
+        {
+            SpecialSkill();
+        }
+        if (Input.GetButtonUp("AutoAttack"))
+        {
+            AutoAttack();
+        }
+    }
 }

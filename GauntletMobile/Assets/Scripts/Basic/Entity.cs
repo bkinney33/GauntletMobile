@@ -9,22 +9,28 @@ public abstract class Entity : MonoBehaviour {
         HEALING, DAMAGE
     }
 
+    [Header("Health Settings", order = 3)]
     [SerializeField]
     protected double maxHealth;
     protected double currentHealth;
+    [Header("Damage Settings", order = 4)]
     [SerializeField]
-    int damage;
-    [Tooltip("If entity does not use projectiles make sure to modify the cleave angle.")]
+    protected int damage;
+    [Tooltip("How Long the Collider for an Auto Attack sticks around.")]
     [SerializeField]
-    float attackRange;
-    [Tooltip("Cleave angle will alter the size of the players attack area large cleave angles will create large areas of effect for damage.")]
-    [SerializeField]
-    float cleaveAngle;
-    [SerializeField]
-    Projectile projectile;
+    protected float autoAttackSpeed;
 
     public abstract bool AutoAttack();
 
+    internal int GetDamage()
+    {
+        return damage;
+    }
+
+    public virtual void HitEnemy()
+    {
+        throw new NotImplementedException();
+    }
 
     public virtual void UpdateHealth(int change, UpdateType typeOfChange)
     {
@@ -42,6 +48,7 @@ public abstract class Entity : MonoBehaviour {
 
     public virtual void Die()
     {
-        throw new NotImplementedException();
+        Debug.Log("Dead Creature.");
+        gameObject.transform.parent.gameObject.SetActive(false);
     }
 }
