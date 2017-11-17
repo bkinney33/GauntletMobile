@@ -1,26 +1,54 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Entity : MonoBehaviour {
+    public enum UpdateType
+    {
+        HEALING, DAMAGE
+    }
 
+    [Header("Health Settings", order = 3)]
     [SerializeField]
     protected double maxHealth;
     protected double currentHealth;
+    [Header("Damage Settings", order = 4)]
     [SerializeField]
-    int damage;
-    [Tooltip("If Entity uses projectiles this range will be sent to the projectile")]
+    protected int damage;
+    [Tooltip("How Long the Collider for an Auto Attack sticks around.")]
     [SerializeField]
-    float attackRange;
-    [Tooltip("Leave empty if the entity does not use projectiles")]
-    [SerializeField]
-    Projectile projectile;
+    protected float autoAttackSpeed;
 
     public abstract bool AutoAttack();
-    
-    
-    public virtual void UpdateHealth(int change)
+
+    internal int GetDamage()
     {
-        currentHealth += change;
+        return damage;
+    }
+
+    public virtual void HitEnemy()
+    {
+        throw new NotImplementedException();
+    }
+
+    public virtual void UpdateHealth(int change, UpdateType typeOfChange)
+    {
+        if (typeOfChange == UpdateType.HEALING)
+        {
+            currentHealth += change;
+        }
+        if (typeOfChange == UpdateType.DAMAGE)
+        {
+            currentHealth -= change;
+        }
+        if (currentHealth <= 0) { Die(); }
+        if (currentHealth > maxHealth) { currentHealth = maxHealth; }
+    }
+
+    public virtual void Die()
+    {
+        Debug.Log("Dead Creature.");
+        gameObject.transform.parent.gameObject.SetActive(false);
     }
 }

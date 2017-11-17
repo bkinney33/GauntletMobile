@@ -1,38 +1,66 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(ResourceManager))]
 public abstract class Class : Entity {
     
+    [Header("Resource Settings", order = 2)]
     [SerializeField]
-    double maxClassResource;
-    double currentClassResource;
-    [SerializeField]
-    string className;
+    protected double maxClassResource;
+    public double currentClassResource;
 
-    public abstract bool SpecialAttack();
+    public abstract bool SpecialSkill();
 
     override
-    public void UpdateHealth(int change)
+    public void UpdateHealth(int change, UpdateType typeOfChange)
     {
-        currentHealth += change;
+        base.UpdateHealth(change, typeOfChange);
         gameObject.GetComponent<ResourceManager>().UpdateHealth(currentHealth / maxHealth);
     }
-    public void UpdateResource(int change)
+
+    override
+    public void Die()
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool SpendResource(int change)
+    {
+        if (currentClassResource - change < 0)
+        {
+            return false;
+        }
+        else
+        {
+            currentClassResource -= change;
+            gameObject.GetComponent<ResourceManager>().UpdateMana(currentClassResource / maxClassResource);
+            return true;
+        }
+    }
+    public void GainResource(int change)
     {
         currentClassResource += change;
+        if(currentClassResource > maxClassResource) { currentClassResource = maxClassResource; }
         gameObject.GetComponent<ResourceManager>().UpdateMana(currentClassResource / maxClassResource);
     }
 
+    protected void Start()
+    {
+        currentHealth = maxHealth;
+        currentClassResource = maxClassResource;
+    }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    internal void Update()
+    {
+        if (Input.GetButtonUp("SpecialSkill"))
+        {
+            SpecialSkill();
+        }
+        if (Input.GetButtonUp("AutoAttack"))
+        {
+            AutoAttack();
+        }
+    }
 }

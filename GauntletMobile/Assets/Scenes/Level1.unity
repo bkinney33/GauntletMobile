@@ -513,9 +513,9 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2856f68eb2ed65d49947710915be0255, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &383784698 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1906772299673088, guid: 868432aa41c020e4e9a28cc94fc18d44,
+--- !u!4 &671643386 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4669670437109416, guid: 879111ecf21fe234483ac73fb84ac20d,
     type: 2}
   m_PrefabInternal: {fileID: 1575936729}
 --- !u!114 &383784700
@@ -823,13 +823,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4165246899640630, guid: 868432aa41c020e4e9a28cc94fc18d44, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 4165246899640630, guid: 868432aa41c020e4e9a28cc94fc18d44, type: 2}
+    - target: {fileID: 4546600751872818, guid: 14fa7a0a082a81e4c87e8a0e7eee3a1d, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 4165246899640630, guid: 868432aa41c020e4e9a28cc94fc18d44, type: 2}
+    - target: {fileID: 4546600751872818, guid: 14fa7a0a082a81e4c87e8a0e7eee3a1d, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
@@ -1178,6 +1178,59 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!1 &2055684531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2055684533}
+  - component: {fileID: 2055684532}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2055684532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2055684531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0b5bb5bf120b7468816127d07ef8cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characters:
+  - character: Juggernaut
+    characterPrefab: {fileID: 114779462382852446, guid: 0fcc2d923d5a04542b6db22c576452f6,
+      type: 2}
+    characterCanvas: {fileID: 223982123663200982, guid: ee63a7e22497f884a9ad373b9d04a01c,
+      type: 2}
+  - character: Slayer
+    characterPrefab: {fileID: 114664097006724724, guid: 75f295e07581e2c44a3925e0ca813bea,
+      type: 2}
+    characterCanvas: {fileID: 223628057179113018, guid: 1b04e00d3339d0544901492df2e68f45,
+      type: 2}
+  selectedCharacter: 1
+  characterStart: {fileID: 671643386}
+--- !u!4 &2055684533
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2055684531}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 474.51294, y: 228.88486, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2126101218
 Prefab:
   m_ObjectHideFlags: 0
