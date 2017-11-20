@@ -656,11 +656,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4966314387284320, guid: 14fa7a0a082a81e4c87e8a0e7eee3a1d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.282369
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 4966314387284320, guid: 14fa7a0a082a81e4c87e8a0e7eee3a1d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.6815827
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 4966314387284320, guid: 14fa7a0a082a81e4c87e8a0e7eee3a1d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -771,7 +771,12 @@ MonoBehaviour:
       type: 2}
     characterCanvas: {fileID: 223628057179113018, guid: 1b04e00d3339d0544901492df2e68f45,
       type: 2}
-  selectedCharacter: 1
+  - character: Warlock
+    characterPrefab: {fileID: 114016626517394094, guid: 08a3b98117868c64cad9f44c438938f3,
+      type: 2}
+    characterCanvas: {fileID: 223744730489457350, guid: fd1214ca008e2914bbb84e481b748f79,
+      type: 2}
+  selectedCharacter: 2
   characterStart: {fileID: 671643386}
 --- !u!4 &2055684533
 Transform:

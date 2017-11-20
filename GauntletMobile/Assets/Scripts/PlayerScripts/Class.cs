@@ -23,7 +23,9 @@ public abstract class Class : Entity {
     override
     public void Die()
     {
-        throw new NotImplementedException();
+
+        Debug.Log("How");
+
     }
 
     public bool SpendResource(int change)

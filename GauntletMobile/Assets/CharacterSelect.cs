@@ -49,6 +49,7 @@ public class CharacterSelect : MonoBehaviour {
         resource.fillAmount = 1;
         newCharacter.GetComponent<ResourceManager>().SetBars(health, resource);
     }
+   
 
     // Update is called once per frame
     void Update () {
