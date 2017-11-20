@@ -27,12 +27,12 @@ public abstract class Entity : MonoBehaviour {
         return damage;
     }
 
-    public virtual void HitEnemy()
+    public virtual void HitEnemy(bool deadEnemy)
     {
-        throw new NotImplementedException();
+        Debug.Log("Enemy Hit");
     }
 
-    public virtual void UpdateHealth(int change, UpdateType typeOfChange)
+    public virtual bool UpdateHealth(int change, UpdateType typeOfChange)
     {
         if (typeOfChange == UpdateType.HEALING)
         {
@@ -42,13 +42,18 @@ public abstract class Entity : MonoBehaviour {
         {
             currentHealth -= change;
         }
-        if (currentHealth <= 0) { Die(); }
+        if (currentHealth <= 0)
+        {
+            Die();
+            return false;
+        }
         if (currentHealth > maxHealth) { currentHealth = maxHealth; }
+        return true;
     }
 
     public virtual void Die()
     {
         Debug.Log("Dead Creature.");
-        gameObject.transform.parent.gameObject.SetActive(false);
+        Destroy(gameObject.transform.parent.gameObject);//gameObject.transform.parent.gameObject.SetActive(false);
     }
 }

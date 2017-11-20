@@ -45,13 +45,21 @@ public class Juggernaut : Class {
         base.Start();
     }
 
-    public override void UpdateHealth(int change, UpdateType typeOfChange)
+    public override bool UpdateHealth(int change, UpdateType typeOfChange)
     {
         if(change < 0 && isInvincible)
         {
-            return;
+            return true;
         }
-        base.UpdateHealth(change, typeOfChange);        
+       return base.UpdateHealth(change, typeOfChange);        
+    }
+
+    public override void HitEnemy(bool notDead)
+    {
+        if (!notDead)
+        {
+            EnemyKilled();
+        }
     }
 
     public void EnemyKilled()

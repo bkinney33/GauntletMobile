@@ -14,16 +14,19 @@ public abstract class Class : Entity {
     public abstract bool SpecialSkill();
 
     override
-    public void UpdateHealth(int change, UpdateType typeOfChange)
+    public bool UpdateHealth(int change, UpdateType typeOfChange)
     {
-        base.UpdateHealth(change, typeOfChange);
+        bool val = base.UpdateHealth(change, typeOfChange);
         gameObject.GetComponent<ResourceManager>().UpdateHealth(currentHealth / maxHealth);
+        return val;
     }
 
     override
     public void Die()
     {
-        throw new NotImplementedException();
+
+        Debug.Log("How");
+
     }
 
     public bool SpendResource(int change)

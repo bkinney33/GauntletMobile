@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Warlock
+  - Slayer
+  - Juggernaut
+  - Hunter
   layers:
   - Default
   - TransparentFX
