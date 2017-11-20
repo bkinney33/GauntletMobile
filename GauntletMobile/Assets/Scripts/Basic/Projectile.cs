@@ -8,7 +8,6 @@ public class Projectile : MonoBehaviour
     
     float projectileSpeed;
     float projectileRange;
-    int projectileDamage;
     public Vector2 startPosition;
 
     public Projectile(float range, int damage)

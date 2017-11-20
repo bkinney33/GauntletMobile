@@ -71,19 +71,23 @@ public class Slayer : Class {
         base.Start();
     }
 
-    public override void UpdateHealth(int change, UpdateType typeOfChange)
+    public override bool UpdateHealth(int change, UpdateType typeOfChange)
     {
-        base.UpdateHealth(change, typeOfChange);
+        return base.UpdateHealth(change, typeOfChange);
     }
 
     public void EnemyKilled()
     {
     }
 
-    public override void HitEnemy()
+    public override void HitEnemy(bool notDead)
     {
         GainResource(energyGainPerHit);
         isPoisonActive = false;
+        if(!notDead)
+        {
+            EnemyKilled();
+        }
     }
 
     // Update is called once per frame
