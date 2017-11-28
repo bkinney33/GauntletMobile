@@ -39,7 +39,7 @@ public class Warlock : Class {
             lastTick = Time.time;
             Projectile p = Instantiate(warlockAutoAttack, transform.position + new Vector3(0, 1, 0), transform.rotation);
             float heading = Mathf.Atan2(CrossPlatformInputManager.GetAxis("Horizontal"), -CrossPlatformInputManager.GetAxis("Vertical"));
-            Vector3 direction = Vector3.up; //Quaternion.Euler(0f, 0f, (((heading) * Mathf.Rad2Deg))).eulerAngles;
+            Vector3 direction = Quaternion.Euler(0f, 0f, (((heading) * Mathf.Rad2Deg))).eulerAngles;
 
             p.Setup(direction, autoAttackProjectileSpeed, autoAttackRange, this);
             return true;

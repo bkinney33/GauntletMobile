@@ -21,6 +21,7 @@ public class Projectile : MonoBehaviour
         projectileSpeed = speed;
         transform.Rotate(direction);
         gameObject.GetComponent<Rigidbody2D>().velocity = direction*projectileSpeed;
+        Debug.Log(direction);
         damageCollider collider = gameObject.GetComponentInChildren<damageCollider>();
         if (collider == null)
         {
