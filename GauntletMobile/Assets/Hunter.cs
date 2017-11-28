@@ -9,18 +9,20 @@ public class Hunter : Class {
     [Header("Focus Settings")]
     [SerializeField]
     short focusGainOnKill;
+    [SerializeField]
+    ObjectPool projectilePool;
 
     [Header("Auto Attack Settings")]
+    [SerializeField]
+    string projectileName;
     [SerializeField]
     protected float autoAttackRange = 5.0f;
     [SerializeField]
     float autoAttackProjectileSpeed = 3.0f;
-    [SerializeField]
-    Projectile hunterAutoAttack;
 
     [Header("Hunter Snipe Settings")]
     [SerializeField]
-    protected Projectile hunterSpecial;
+    string snipeShotProjectileName;
     [SerializeField]
     short hunterSpecialCost = 5;
     [SerializeField]
@@ -37,17 +39,22 @@ public class Hunter : Class {
         if ((lastTick + autoAttackSpeed) <= Time.time)
         {
             lastTick = Time.time;
-            Projectile p = Instantiate(hunterAutoAttack, transform.position + new Vector3(0, 1, 0), transform.rotation);
-            float heading = Mathf.Atan2(CrossPlatformInputManager.GetAxis("Horizontal"), -CrossPlatformInputManager.GetAxis("Vertical"));
-            Vector3 direction = Vector3.up; //Quaternion.Euler(0f, 0f, (((heading) * Mathf.Rad2Deg))).eulerAngles;
-
-            p.Setup(direction, autoAttackProjectileSpeed, autoAttackRange, this);
+            GameObject g = projectilePool.GetPooledObject(projectileName);
+            if (g == null) { return false; }
+            Projectile p = g.GetComponent<Projectile>();
+            if (p == null) { return false; }
+            g.SetActive(true);
+            p.transform.position = transform.root.position;
+            Vector3 direction = transform.root.up;
+            float y = transform.root.eulerAngles.y;
+            direction = Quaternion.Euler(0, 0, -y) * direction;
+            p.Setup(direction, autoAttackSpeed, autoAttackRange, transform.root.gameObject.GetComponent<Entity>());
             return true;
         }
         return false;
     }
 
-    public override void HitEnemy(bool notDead)
+    public override void HitEnemy(bool notDead, Entity enemy)
     {
         if (!notDead)
         {
@@ -65,11 +72,16 @@ public class Hunter : Class {
         if ((lastTick + autoAttackSpeed) <= Time.time && SpendResource(hunterSpecialCost))
         {
             lastTick = Time.time;
-            Projectile p = Instantiate(hunterSpecial, transform.position + new Vector3(0, 1, 0), transform.rotation);
-            float heading = Mathf.Atan2(CrossPlatformInputManager.GetAxis("Horizontal"), -CrossPlatformInputManager.GetAxis("Vertical"));
-            Vector3 direction = Vector3.up; //Quaternion.Euler(0f, 0f, (((heading) * Mathf.Rad2Deg))).eulerAngles;
-
-            p.Setup(direction, specialAttackProjectileSpeed, specialAttackRange, this);
+            GameObject g = projectilePool.GetPooledObject(snipeShotProjectileName);
+            if (g == null) { return false; }
+            Projectile p = g.GetComponent<Projectile>();
+            if (p == null) { return false; }
+            g.SetActive(true);
+            p.transform.position = transform.root.position;
+            Vector3 direction = transform.root.up;
+            float y = transform.root.eulerAngles.y;
+            direction = Quaternion.Euler(0, 0, -y) * direction;
+            p.Setup(direction, specialAttackProjectileSpeed, specialAttackRange, transform.root.gameObject.GetComponent<Entity>());
             return true;
         }
         return false;

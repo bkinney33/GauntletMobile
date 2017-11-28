@@ -54,7 +54,7 @@ public class Juggernaut : Class {
        return base.UpdateHealth(change, typeOfChange);        
     }
 
-    public override void HitEnemy(bool notDead)
+    public override void HitEnemy(bool notDead, Entity enemy)
     {
         if (!notDead)
         {
