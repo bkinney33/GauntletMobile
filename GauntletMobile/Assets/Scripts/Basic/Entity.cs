@@ -27,7 +27,7 @@ public abstract class Entity : MonoBehaviour {
         return damage;
     }
 
-    public virtual void HitEnemy(bool deadEnemy)
+    public virtual void HitEnemy(bool deadEnemy, Entity enemy)
     {
         Debug.Log("Enemy Hit");
     }

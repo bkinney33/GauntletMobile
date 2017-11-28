@@ -56,7 +56,7 @@ public abstract class Class : Entity {
         currentClassResource = maxClassResource;
     }
 
-    internal void Update()
+    public void Update()
     {
         if (Input.GetButtonUp("SpecialSkill"))
         {

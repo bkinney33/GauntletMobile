@@ -5,24 +5,21 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    
+
     float projectileSpeed;
     float projectileRange;
     public Vector2 startPosition;
+    Rigidbody2D m_rigidBody;
 
-    public Projectile(float range, int damage)
-    {
-        projectileRange = range;
-    }
 
-    internal void Setup(Vector3 direction, float speed, float range, Entity parent)
+
+    internal void Setup(Vector2 direction, float speed, float range, Entity parent)
     {
+        startPosition = transform.position;
         projectileRange = range;
         projectileSpeed = speed;
-        transform.Rotate(direction);
-        gameObject.GetComponent<Rigidbody2D>().velocity = direction*projectileSpeed;
-        Debug.Log(direction);
-        damageCollider collider = gameObject.GetComponentInChildren<damageCollider>();
+        m_rigidBody.velocity = direction * projectileSpeed;
+        damageCollider collider = gameObject.GetComponent<damageCollider>();
         if (collider == null)
         {
             Debug.Log("Damage Collider = Null on Projectile.");
@@ -33,17 +30,17 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         startPosition = transform.position;
+        m_rigidBody = gameObject.GetComponent<Rigidbody2D>();
     }
-
     private void Update()
     {
         float distance = Vector2.Distance(transform.position, startPosition);
-        if(distance >= projectileRange)
+        if (distance >= projectileRange)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

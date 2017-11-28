@@ -19,7 +19,7 @@ public class BlastCollider : damageCollider {
             if (e != null)
             {
                 bool notDead = e.UpdateHealth(parent.GetDamage(), Entity.UpdateType.DAMAGE);
-                parent.HitEnemy(notDead);
+                parent.HitEnemy(notDead, e);
             }
         }
 

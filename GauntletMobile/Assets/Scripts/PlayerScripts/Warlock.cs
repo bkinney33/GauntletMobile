@@ -14,14 +14,16 @@ public class Warlock : Class {
 
     [Header("Auto Attack Settings")]
     [SerializeField]
+    ObjectPool projectilePool;
+    [SerializeField]
+    string projectileName;
+    [SerializeField]
     protected float autoAttackRange = 5.0f;
     [SerializeField]
     float autoAttackProjectileSpeed = 3.0f;
-    [SerializeField]
-    Projectile warlockAutoAttack;
     [Header("Warlock Hellfire Settings")]
     [SerializeField]
-    protected Projectile warlockSpecial;
+    string hellfireName;
     [SerializeField]
     short warlockSpecialCost = 5;
     [SerializeField]
@@ -33,15 +35,19 @@ public class Warlock : Class {
 
     public override bool AutoAttack()
     {
-
         if ((lastTick + autoAttackSpeed) <= Time.time)
         {
             lastTick = Time.time;
-            Projectile p = Instantiate(warlockAutoAttack, transform.position + new Vector3(0, 1, 0), transform.rotation);
-            float heading = Mathf.Atan2(CrossPlatformInputManager.GetAxis("Horizontal"), -CrossPlatformInputManager.GetAxis("Vertical"));
-            Vector3 direction = Quaternion.Euler(0f, 0f, (((heading) * Mathf.Rad2Deg))).eulerAngles;
-
-            p.Setup(direction, autoAttackProjectileSpeed, autoAttackRange, this);
+            GameObject g = projectilePool.GetPooledObject(projectileName);
+            if (g == null) { return false; }
+            Projectile p = g.GetComponent<Projectile>();
+            if (p == null) { return false; }
+            g.SetActive(true);
+            p.transform.position = transform.root.position;
+            Vector3 direction = transform.root.up;
+            float y = transform.root.eulerAngles.y;
+            direction = Quaternion.Euler(0, 0, -y) * direction;
+            p.Setup(direction, autoAttackProjectileSpeed, autoAttackRange, transform.root.gameObject.GetComponent<Entity>());
             return true;
         }
         return false;
@@ -52,11 +58,16 @@ public class Warlock : Class {
         if ((lastTick + autoAttackSpeed) <= Time.time && SpendResource(warlockSpecialCost))
         {
             lastTick = Time.time;
-            Projectile p = Instantiate(warlockSpecial, transform.position + new Vector3(0, 1, 0), transform.rotation);
-            float heading = Mathf.Atan2(CrossPlatformInputManager.GetAxis("Horizontal"), -CrossPlatformInputManager.GetAxis("Vertical"));
-            Vector3 direction = Vector3.up; //Quaternion.Euler(0f, 0f, (((heading) * Mathf.Rad2Deg))).eulerAngles;
-
-            p.Setup(direction, specialAttackProjectileSpeed, specialAttackRange, this);
+            GameObject g = projectilePool.GetPooledObject(hellfireName);
+            if (g == null) { return false; }
+            Projectile p = g.GetComponent<Projectile>();
+            if (p == null) { return false; }
+            g.SetActive(true);
+            p.transform.position = transform.root.position;
+            Vector3 direction = transform.root.up;
+            float y = transform.root.eulerAngles.y;
+            direction = Quaternion.Euler(0, 0, -y) * direction;
+            p.Setup(direction, specialAttackProjectileSpeed, specialAttackRange, transform.root.gameObject.GetComponent<Entity>());
             return true;
         }
         return false;
@@ -67,6 +78,7 @@ public class Warlock : Class {
         base.Start();
         lastTick = Time.time;
         manaRengen = Time.time;
+        projectilePool = GameObject.Find("ProjectilePool").GetComponent<ObjectPool>();
 	}
 	
 	// Update is called once per frame
@@ -79,7 +91,7 @@ public class Warlock : Class {
         }
 	}
 
-    public override void HitEnemy(bool notDead)
+    public override void HitEnemy(bool notDead, Entity enemy)
     {
         if (!notDead)
         {

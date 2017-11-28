@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class damageCollider : MonoBehaviour {
+public class damageCollider : MonoBehaviour
+{
 
     [Header("Collision Settings")]
     [SerializeField]
@@ -13,17 +14,16 @@ public class damageCollider : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         GameObject g = collision.gameObject.transform.parent.gameObject;
         Entity e = g.GetComponentInChildren<Entity>();
         if (e != null)
         {
             bool notDead = e.UpdateHealth(parent.GetDamage(), Entity.UpdateType.DAMAGE);
-            parent.HitEnemy(notDead);
+            parent.HitEnemy(notDead, e);
         }
-        if(oneTimeUse)
+        if (oneTimeUse)
         {
-            Destroy(gameObject.transform.parent.gameObject);
+            transform.root.gameObject.SetActive(false);
         }
     }
 

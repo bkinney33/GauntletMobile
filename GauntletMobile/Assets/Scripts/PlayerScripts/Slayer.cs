@@ -80,7 +80,7 @@ public class Slayer : Class {
     {
     }
 
-    public override void HitEnemy(bool notDead)
+    public override void HitEnemy(bool notDead, Entity enemy)
     {
         GainResource(energyGainPerHit);
         isPoisonActive = false;
