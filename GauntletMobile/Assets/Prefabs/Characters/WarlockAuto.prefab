@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4585524234039790}
   - component: {fileID: 114945372059871022}
   - component: {fileID: 50495656597897860}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WarlockAuto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 212403820031488188}
   - component: {fileID: 58241692888665138}
   - component: {fileID: 114600638159848666}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Warlock
   m_Icon: {fileID: 0}
