@@ -22,11 +22,11 @@ public class Slayer : Class {
     [Tooltip("Duration of Poison.")]
     [SerializeField]
     float poisonDuration;
+    GameObject collider;
 
     public override bool AutoAttack()
     {
         Debug.Log("Auto On.");
-        GameObject collider = gameObject.transform.Find("AttackCollider").gameObject;
         collider.SetActive(true);
         StartCoroutine(TurnOffAttackCollider());
         return true;
@@ -35,7 +35,6 @@ public class Slayer : Class {
     IEnumerator TurnOffAttackCollider()
     {
         yield return new WaitForSeconds(autoAttackSpeed);
-        GameObject collider = gameObject.transform.Find("AttackCollider").gameObject;
         collider.SetActive(false);
         Debug.Log("Auto Off.");
     }
@@ -69,6 +68,8 @@ public class Slayer : Class {
     // Use this for initialization
     void Start () {
         base.Start();
+        collider = gameObject.transform.Find("AttackCollider").gameObject;
+
     }
 
     public override bool UpdateHealth(int change, UpdateType typeOfChange)

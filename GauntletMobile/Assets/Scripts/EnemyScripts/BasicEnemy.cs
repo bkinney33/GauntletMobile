@@ -4,18 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BasicEnemy : Mob {
-    public override bool AutoAttack()
-    {
-        return true;
-    }
 
     // Use this for initialization
-    void Start () {
-		
+    void Start ()
+    {
+        base.Start();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+    {
+        base.Update();
 	}
+
+    public override bool AutoAttack()
+    {
+        collider.SetActive(true);
+        StartCoroutine(TurnOffAttackCollider());
+        return true;
+    }
 }
