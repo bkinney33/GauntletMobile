@@ -10,8 +10,11 @@ public class Juggernaut : Class {
     [Tooltip("Cost to rage per second. Base values indicate the player must kill a creature once every 5 seconds to maintain rage.")]
     [SerializeField]
     short rageCostPerSecond = 1;
+    [Tooltip("HP regened per second inside rage.")]
     [SerializeField]
+    short hpRegen = 1;
     [Tooltip("Limiter on rage gain per kill increasing or decreasing this value without editing rage cost will change the ease of maintaining rage.")]
+    [SerializeField]
     short rageGainOnKill = 5;
     float lastTick;
 
@@ -83,6 +86,7 @@ public class Juggernaut : Class {
             {
                 isInvincible = false;
             }
+            UpdateHealth(hpRegen, UpdateType.HEALING);
             lastTick = Time.time;
         }
 

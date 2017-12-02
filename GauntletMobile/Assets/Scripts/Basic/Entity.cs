@@ -19,6 +19,7 @@ public abstract class Entity : MonoBehaviour {
     [Tooltip("How Long the Collider for an Auto Attack sticks around.")]
     [SerializeField]
     protected float autoAttackSpeed;
+    public float wallDamageTick;
 
     public abstract bool AutoAttack();
 
@@ -29,7 +30,11 @@ public abstract class Entity : MonoBehaviour {
 
     public virtual void HitEnemy(bool deadEnemy, Entity enemy)
     {
-        Debug.Log("Enemy Hit");
+    }
+
+    internal void HitEnemy(bool notDead, Entity e, bool v)
+    {
+        throw new NotImplementedException();
     }
 
     public virtual bool UpdateHealth(int change, UpdateType typeOfChange)
@@ -54,6 +59,6 @@ public abstract class Entity : MonoBehaviour {
     public virtual void Die()
     {
         Debug.Log("Dead Creature.");
-        Destroy(gameObject.transform.parent.gameObject);//gameObject.transform.parent.gameObject.SetActive(false);
+        gameObject.transform.root.gameObject.SetActive(false);//gameObject.transform.parent.gameObject.SetActive(false);
     }
 }

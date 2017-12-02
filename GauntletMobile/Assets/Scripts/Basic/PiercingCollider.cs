@@ -19,7 +19,8 @@ public class PiercingCollider : damageCollider {
         if (e != null)
         {
             bool notDead = e.UpdateHealth(parent.GetDamage(), Entity.UpdateType.DAMAGE);
-            parent.HitEnemy(notDead, e);
+
+            parent.HitEnemy(notDead, e, true);
         }
 
         if (oneTimeUse)

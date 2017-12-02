@@ -29,6 +29,8 @@ public class Hunter : Class {
     protected float specialAttackRange = 5.0f;
     [SerializeField]
     float specialAttackProjectileSpeed = 1.0f;
+    [SerializeField]
+    short hpPerHit = 1;
 
 
     float lastTick;
@@ -61,7 +63,11 @@ public class Hunter : Class {
             EnemyKilled();
         }
     }
-
+    internal void HitEnemy(bool notDead, Entity e, bool special)
+    {
+        UpdateHealth(hpPerHit, UpdateType.HEALING);
+        HitEnemy(notDead, e);
+    }
     public void EnemyKilled()
     {
         GainResource(focusGainOnKill);

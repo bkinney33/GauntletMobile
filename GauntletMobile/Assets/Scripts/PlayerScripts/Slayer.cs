@@ -84,6 +84,10 @@ public class Slayer : Class {
     public override void HitEnemy(bool notDead, Entity enemy)
     {
         GainResource(energyGainPerHit);
+        if(isPoisonActive)
+        {
+            UpdateHealth(damage, UpdateType.HEALING);
+        }
         isPoisonActive = false;
         if(!notDead)
         {

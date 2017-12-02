@@ -26,7 +26,7 @@ public class CharacterSelect : MonoBehaviour {
     private GameObject newCharacter;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         SetupCanvas();
         SetupCharacter();
 

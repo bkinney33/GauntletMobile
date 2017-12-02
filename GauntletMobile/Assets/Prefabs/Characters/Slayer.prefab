@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 4235808591534008}
   - component: {fileID: 58367958239790396}
   - component: {fileID: 114910001969631790}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: AttackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,6 +364,7 @@ MonoBehaviour:
   maxHealth: 10
   damage: 5
   autoAttackSpeed: 1
+  wallDamageTick: 0
   maxClassResource: 10
   currentClassResource: 0
   energyGainPerHit: 1

@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4966314387284320}
   - component: {fileID: 50198706972155620}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Minion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4289135016706730}
   - component: {fileID: 114031254419062396}
   - component: {fileID: 114257550601662056}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Brain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4931850551988594}
   - component: {fileID: 60515617064240402}
   - component: {fileID: 114716735425552678}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AttackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 4546600751872818}
   - component: {fileID: 212723048560256110}
   - component: {fileID: 58575120769060196}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,26 +97,26 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1554299403884900}
-  m_LocalRotation: {x: -0.7071068, y: 0.7071068, z: -0, w: 0}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 4966314387284320}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
 --- !u!4 &4931850551988594
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1538630938995638}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4966314387284320}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4966314387284320
 Transform:
   m_ObjectHideFlags: 1
@@ -197,8 +197,8 @@ PolygonCollider2D:
       - {x: 0.17590237, y: -0.016511083}
       - {x: 0.0042123795, y: -0.17501223}
       - {x: 0.2541995, y: -0.16749263}
-      - {x: 0.4196949, y: -0.0043307543}
-      - {x: 0.34587026, y: 0.085674405}
+      - {x: 0.85190463, y: -0.030263245}
+      - {x: 0.40637946, y: 0.12889528}
 --- !u!114 &114031254419062396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,8 +211,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  damage: 1
+  damage: 5
   autoAttackSpeed: 1
+  wallDamageTick: 0
   scoreAwarded: 5
   autoAttackRange: 3
 --- !u!114 &114257550601662056

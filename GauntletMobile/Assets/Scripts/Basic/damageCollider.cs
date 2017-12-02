@@ -14,7 +14,7 @@ public class damageCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject g = collision.gameObject.transform.parent.gameObject;
+        GameObject g = collision.gameObject.transform.root.gameObject;
         Entity e = g.GetComponentInChildren<Entity>();
         if (e != null)
         {

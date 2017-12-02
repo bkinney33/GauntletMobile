@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BasicRangedEnemy : Mob {
 
+    public ObjectPool projectilePool;
     public override bool AutoAttack()
     {
         return true;

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 [RequireComponent(typeof(ResourceManager))]
 public abstract class Class : Entity {
@@ -58,11 +55,11 @@ public abstract class Class : Entity {
 
     public void Update()
     {
-        if (Input.GetButtonUp("SpecialSkill"))
+        if (CrossPlatformInputManager.GetButtonUp("SpecialSkill"))
         {
             SpecialSkill();
         }
-        if (Input.GetButtonUp("AutoAttack"))
+        if (CrossPlatformInputManager.GetButtonUp("AutoAttack"))
         {
             AutoAttack();
         }
