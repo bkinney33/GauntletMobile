@@ -25,7 +25,16 @@ public class Warlock : Class {
     [SerializeField]
     string hellfireName;
     [SerializeField]
+    short hpPerHit = 1;
+    [SerializeField]
     short warlockSpecialCost = 5;
+
+    internal void HitEnemy(bool notDead, Entity e, bool special)
+    {
+        UpdateHealth(hpPerHit, UpdateType.HEALING);
+        HitEnemy(notDead, e);
+    }
+
     [SerializeField]
     protected float specialAttackRange = 5.0f;
     [SerializeField]

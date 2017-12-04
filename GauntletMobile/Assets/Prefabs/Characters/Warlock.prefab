@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4090349899937654}
   - component: {fileID: 212153305459125816}
   - component: {fileID: 58877852323936138}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 114156278949780612}
   - component: {fileID: 114227571589606010}
   - component: {fileID: 114016626517394094}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Warlock
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 124059788082850258}
   - component: {fileID: 81075689743075920}
   - component: {fileID: 114765288175919868}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -262,12 +262,11 @@ MonoBehaviour:
   currentClassResource: 0
   manaRegenInterval: 1
   manaRegenValue: 1
+  projectilePool: {fileID: 0}
+  projectileName: Warlock Auto
   autoAttackRange: 5
   autoAttackProjectileSpeed: 3
-  warlockAutoAttack: {fileID: 114945372059871022, guid: b04df3a0e3f33dc4abb2940384a188e7,
-    type: 2}
-  warlockSpecial: {fileID: 114435760897377530, guid: beee416cacd5c804ca8a762fca16feeb,
-    type: 2}
+  hellfireName: Warlock Hellfire
   warlockSpecialCost: 5
   specialAttackRange: 5
   specialAttackProjectileSpeed: 1

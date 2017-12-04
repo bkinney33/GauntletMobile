@@ -18,11 +18,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - PlayerDamage
+  - Enemy
+  - EnemyDamage
+  - Spawns
   - 
   - 
   - 

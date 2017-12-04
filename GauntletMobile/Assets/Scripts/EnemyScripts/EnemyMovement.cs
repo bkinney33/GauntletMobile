@@ -26,6 +26,7 @@ public class EnemyMovement : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+
 	}
 
     public void SetTarget(Transform newTarget)
@@ -43,12 +44,12 @@ public class EnemyMovement : MonoBehaviour {
             self.LookAt(target);
             if (IsInMaxRange())
             {
-                self.position += self.forward * moveSpeed * Time.deltaTime;
+                self.position += self.up * moveSpeed * Time.deltaTime;
                 inRange = false;
             }
             if (Vector3.Distance(self.position, target.position) < minDist)
             {
-                self.position -= self.forward * moveSpeed * Time.deltaTime;
+                self.position -= self.up * moveSpeed * Time.deltaTime;
                 inRange = false;
             }
         }
