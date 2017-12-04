@@ -17,13 +17,22 @@ public class Juggernaut : Class {
     [SerializeField]
     short rageGainOnKill = 5;
     float lastTick;
+    private Animator animator;
+    void Start()
+    {
+        animator = GetComponentInChildren<Animator>();
+        base.Start();
+    }
 
     public override bool AutoAttack()
     {
+        
         Debug.Log("Auto On.");
         GameObject collider = gameObject.transform.Find("AttackCollider").gameObject;
         collider.SetActive(true);
+        animator.SetTrigger("autoAttack");
         StartCoroutine(TurnOffAttackCollider());
+
         return true;
     }
 
@@ -44,10 +53,7 @@ public class Juggernaut : Class {
     }
      
     // Use this for initialization
-    void Start () {
-        base.Start();
-    }
-
+ 
     public override bool UpdateHealth(int change, UpdateType typeOfChange)
     {
         if(change < 0 && isInvincible)
