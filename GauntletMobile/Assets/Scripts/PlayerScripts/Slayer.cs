@@ -22,12 +22,14 @@ public class Slayer : Class {
     [Tooltip("Duration of Poison.")]
     [SerializeField]
     float poisonDuration;
+    private Animator animator;
 
     public override bool AutoAttack()
     {
         Debug.Log("Auto On.");
         GameObject collider = gameObject.transform.Find("AttackCollider").gameObject;
         collider.SetActive(true);
+        animator.SetTrigger("autoAttack");
         StartCoroutine(TurnOffAttackCollider());
         return true;
     }
@@ -68,6 +70,8 @@ public class Slayer : Class {
 
     // Use this for initialization
     void Start () {
+
+        animator = GetComponentInChildren<Animator>();
         base.Start();
     }
 

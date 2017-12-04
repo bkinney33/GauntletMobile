@@ -928,7 +928,7 @@ MonoBehaviour:
       type: 2}
     characterCanvas: {fileID: 223191773470150660, guid: 1a1c5f9f014c7ef4096bb50760cda01e,
       type: 2}
-  selectedCharacter: 0
+  selectedCharacter: 3
   characterStart: {fileID: 0}
 --- !u!4 &2055684533
 Transform:
