@@ -13,16 +13,25 @@ public class Slayer : Class {
     [SerializeField]
     short poisonActivationCost;
     bool isPoisonActive = false;
-    [Tooltip("Static Increase to Damage on Next Auto Attack. Static Damage is Added After Scaling.")]
-    [SerializeField]
-    int poisonDamageStatic = 5;
-    [Tooltip("Scaling Damage on Next Auto Attack.")]
-    [SerializeField]
-    float poisonDamageScaling = 1.5f;
     [Tooltip("Duration of Poison.")]
     [SerializeField]
     float poisonDuration;
+    float poisonStartTime;
     GameObject collider;
+
+    public override int GetDamage()
+    {
+        if (isPoisonActive) {
+            float hpScale = 2 - (currentHealth / MaxHealth);
+            float time = Time.time - poisonStartTime;
+            float timeScale = 2 - (time / poisonDuration);
+            return damage * (hpScale + timeScale);
+        }
+        else
+        {
+            return damage;
+        }
+    }
 
     public override bool AutoAttack()
     {
@@ -44,8 +53,7 @@ public class Slayer : Class {
         if(SpendResource(poisonActivationCost))
         {
             isPoisonActive = true;
-            damage = (short)((float)damage * poisonDamageScaling);
-            damage += poisonDamageStatic;
+            poisonStartTime = Time.time;
             StartCoroutine(PoisonSkill());
             return true;
         }
@@ -61,9 +69,7 @@ public class Slayer : Class {
     private void TurnOffPoisonEffects()
     {
         isPoisonActive = false;
-        damage -= poisonDamageStatic;
-        damage = (short)((float)damage / poisonDamageScaling);
-    }
+     }
 
     // Use this for initialization
     void Start () {
