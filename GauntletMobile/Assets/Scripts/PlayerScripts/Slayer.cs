@@ -9,6 +9,7 @@ public class Slayer : Class {
     [SerializeField]
     short energyGainPerHit = 1;
     [Header("Poison Settings", order = 1)]
+    GameObject poisonCover;
     [Tooltip("Energy Cost to Activate Poison Skill.")]
     [SerializeField]
     short poisonActivationCost;
@@ -22,10 +23,10 @@ public class Slayer : Class {
     public override int GetDamage()
     {
         if (isPoisonActive) {
-            float hpScale = 2 - (currentHealth / MaxHealth);
+            double hpScale = 2 - (currentHealth / maxHealth);
             float time = Time.time - poisonStartTime;
             float timeScale = 2 - (time / poisonDuration);
-            return damage * (hpScale + timeScale);
+            return (int)(damage * (hpScale + timeScale));
         }
         else
         {
@@ -50,10 +51,12 @@ public class Slayer : Class {
 
     public override bool SpecialSkill()
     {
+        if (isPoisonActive) { return false; }
         if(SpendResource(poisonActivationCost))
         {
             isPoisonActive = true;
             poisonStartTime = Time.time;
+            poisonCover.SetActive(true);
             StartCoroutine(PoisonSkill());
             return true;
         }
@@ -69,13 +72,15 @@ public class Slayer : Class {
     private void TurnOffPoisonEffects()
     {
         isPoisonActive = false;
+        poisonCover.SetActive(false);
      }
 
     // Use this for initialization
     void Start () {
         base.Start();
         collider = gameObject.transform.Find("AttackCollider").gameObject;
-
+        poisonCover = gameObject.transform.Find("PoisonCover").gameObject;
+        poisonCover.SetActive(false);
     }
 
     public override bool UpdateHealth(int change, UpdateType typeOfChange)

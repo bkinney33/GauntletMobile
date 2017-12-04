@@ -7,6 +7,7 @@ using UnityEngine;
 public class Juggernaut : Class {
     bool isInvincible = false;
     [Header("Rage Settings", order = 1)]
+    GameObject rageCover;
     [Tooltip("Cost to rage per second. Base values indicate the player must kill a creature once every 5 seconds to maintain rage.")]
     [SerializeField]
     short rageCostPerSecond = 1;
@@ -22,6 +23,8 @@ public class Juggernaut : Class {
     {
         animator = GetComponentInChildren<Animator>();
         base.Start();
+        rageCover = gameObject.transform.Find("RageCover").gameObject;
+        rageCover.SetActive(false);
     }
 
     public override bool AutoAttack()
@@ -49,6 +52,7 @@ public class Juggernaut : Class {
         Debug.Log("Special Skill");
         isInvincible = !isInvincible;
         lastTick = Time.time;
+        rageCover.SetActive(!rageCover.activeInHierarchy);
         return true;
     }
      
@@ -91,6 +95,8 @@ public class Juggernaut : Class {
             if (!SpendResource(rageCostPerSecond))
             {
                 isInvincible = false;
+                rageCover.SetActive(false);
+
             }
             UpdateHealth(hpRegen, UpdateType.HEALING);
             lastTick = Time.time;

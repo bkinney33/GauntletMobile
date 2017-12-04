@@ -23,7 +23,7 @@ public abstract class Entity : MonoBehaviour {
 
     public abstract bool AutoAttack();
 
-    protected int GetDamage()
+    public virtual int GetDamage()
     {
         return damage;
     }
