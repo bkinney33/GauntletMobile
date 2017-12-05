@@ -17,7 +17,6 @@ public class CharacterSelect : MonoBehaviour {
 
     [SerializeField]
     Character[] characters;
-    [SerializeField]
     short selectedCharacter;
     [SerializeField]
     Transform characterStart;
@@ -27,7 +26,12 @@ public class CharacterSelect : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+        CharacterSelectInfo g = GameObject.Find("CharacterSelectInfo").GetComponent<CharacterSelectInfo>();
+        selectedCharacter = g.characterID;
         SetupCanvas();
+        GameObject g2 = GameObject.Find("Simple");
+        Text t = g2.GetComponentInChildren<Text>();
+        t.text = g.name;
         SetupCharacter();
 
 	}

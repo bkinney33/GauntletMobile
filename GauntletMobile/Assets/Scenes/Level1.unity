@@ -3882,6 +3882,57 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.03, y: 1.03}
   m_EdgeRadius: 0
+--- !u!1001 &1179752966
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4403193146589730, guid: 08a3b98117868c64cad9f44c438938f3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.02109
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403193146589730, guid: 08a3b98117868c64cad9f44c438938f3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.6140025
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403193146589730, guid: 08a3b98117868c64cad9f44c438938f3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.03308519
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403193146589730, guid: 08a3b98117868c64cad9f44c438938f3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403193146589730, guid: 08a3b98117868c64cad9f44c438938f3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403193146589730, guid: 08a3b98117868c64cad9f44c438938f3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403193146589730, guid: 08a3b98117868c64cad9f44c438938f3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403193146589730, guid: 08a3b98117868c64cad9f44c438938f3, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1701799636347404, guid: 08a3b98117868c64cad9f44c438938f3, type: 2}
+      propertyPath: m_Name
+      value: Sage
+      objectReference: {fileID: 0}
+    - target: {fileID: 114016626517394094, guid: 08a3b98117868c64cad9f44c438938f3,
+        type: 2}
+      propertyPath: damageMax
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 08a3b98117868c64cad9f44c438938f3, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1224860106
 GameObject:
   m_ObjectHideFlags: 0
@@ -5953,7 +6004,6 @@ MonoBehaviour:
       type: 2}
     characterCanvas: {fileID: 223191773470150660, guid: 1a1c5f9f014c7ef4096bb50760cda01e,
       type: 2}
-  selectedCharacter: 1
   characterStart: {fileID: 2055684533}
 --- !u!4 &2055684533
 Transform:
