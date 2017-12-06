@@ -17,7 +17,6 @@ public class CharacterSelect : MonoBehaviour {
 
     [SerializeField]
     Character[] characters;
-    [SerializeField]
     short selectedCharacter;
     [SerializeField]
     Transform characterStart;
@@ -27,10 +26,21 @@ public class CharacterSelect : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+        CharacterSelectInfo g = GameObject.Find("CharacterSelectInfo").GetComponent<CharacterSelectInfo>();
+        selectedCharacter = g.characterID;
         SetupCanvas();
+        GameObject g2 = GameObject.Find("Simple");
+        Text t = g2.GetComponentInChildren<Text>();
+        t.text = g.name;
         SetupCharacter();
+        FloatingTextController.Initialize();
 
 	}
+
+    public GameObject GetCanvas()
+    {
+        return newCanvas.gameObject;
+    }
 
     private void SetupCanvas()
     {
@@ -40,7 +50,9 @@ public class CharacterSelect : MonoBehaviour {
     private void SetupCharacter()
     {
         Character currentCharacter = characters[selectedCharacter];
-        newCharacter = Instantiate(currentCharacter.characterPrefab.gameObject, characterStart);
+        Vector3 position = characterStart.position;
+        position.z = -1;
+        newCharacter = Instantiate(currentCharacter.characterPrefab.gameObject, position, Quaternion.identity);
         GameObject healthBar = newCanvas.transform.Find("Simple/Bars/Healthbar").gameObject;
         Image health = healthBar.GetComponent<Image>();
         health.fillAmount = 1;

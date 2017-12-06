@@ -12,9 +12,9 @@ public abstract class Class : Entity {
     public abstract bool SpecialSkill();
 
     override
-    public bool UpdateHealth(int change, UpdateType typeOfChange)
+    public bool UpdateHealth(int change, UpdateType typeOfChange, bool showText)
     {
-        bool val = base.UpdateHealth(change, typeOfChange);
+        bool val = base.UpdateHealth(change, typeOfChange, showText);
         gameObject.GetComponent<ResourceManager>().UpdateHealth(currentHealth / maxHealth);
         return val;
     }

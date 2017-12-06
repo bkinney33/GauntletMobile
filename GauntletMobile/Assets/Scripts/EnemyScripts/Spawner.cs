@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour {
+public class Spawner : Entity {
 
     [System.Serializable]
     public struct SpawnInfo
@@ -76,7 +77,7 @@ public class Spawner : MonoBehaviour {
                 GameObject g = GetPooledObject();
                 if (g != null)
                 {
-                    g.transform.position = Random.insideUnitCircle * (Random.Range(info.minAndMaxRange.x, info.minAndMaxRange.y));
+                    g.transform.position = UnityEngine.Random.insideUnitCircle * (UnityEngine.Random.Range(info.minAndMaxRange.x, info.minAndMaxRange.y));
                     g.transform.Translate(transform.position);
                     EnemyMovement em = g.GetComponentInChildren<EnemyMovement>();
                     if (em != null) { em.SetTarget(player); }
@@ -85,4 +86,9 @@ public class Spawner : MonoBehaviour {
             }
         }
 	}
+
+    public override bool AutoAttack()
+    {
+        throw new NotImplementedException();
+    }
 }

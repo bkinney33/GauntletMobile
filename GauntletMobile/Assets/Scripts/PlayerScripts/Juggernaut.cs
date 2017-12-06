@@ -58,13 +58,14 @@ public class Juggernaut : Class {
      
     // Use this for initialization
  
-    public override bool UpdateHealth(int change, UpdateType typeOfChange)
+    public override bool UpdateHealth(int change, UpdateType typeOfChange, bool showText)
     {
         if(change < 0 && isInvincible)
         {
+            FloatingTextController.CreateFloatingText("0", Color.white);
             return true;
         }
-       return base.UpdateHealth(change, typeOfChange);        
+       return base.UpdateHealth(change, typeOfChange, showText);        
     }
 
     public override void HitEnemy(bool notDead, Entity enemy)
@@ -98,7 +99,7 @@ public class Juggernaut : Class {
                 rageCover.SetActive(false);
 
             }
-            UpdateHealth(hpRegen, UpdateType.HEALING);
+            UpdateHealth(hpRegen, UpdateType.HEALING, true);
             lastTick = Time.time;
         }
 

@@ -18,14 +18,16 @@ public class Slayer : Class {
     [SerializeField]
     float poisonDuration;
     float poisonStartTime;
+    double hpScale, timeScale;
     GameObject collider;
     private Animator animator;
+
     public override int GetDamage()
     {
         if (isPoisonActive) {
-            double hpScale = 2 - (currentHealth / maxHealth);
+            hpScale = 2 - (currentHealth / maxHealth);
             float time = Time.time - poisonStartTime;
-            float timeScale = 2 - (time / poisonDuration);
+            timeScale = 2 - (time / poisonDuration);
             return (int)(damage * (hpScale + timeScale));
         }
         else
@@ -86,9 +88,9 @@ public class Slayer : Class {
         collider.SetActive(false);
     }
 
-    public override bool UpdateHealth(int change, UpdateType typeOfChange)
+    public override bool UpdateHealth(int change, UpdateType typeOfChange, bool showText)
     {
-        return base.UpdateHealth(change, typeOfChange);
+        return base.UpdateHealth(change, typeOfChange, showText);
     }
 
     public void EnemyKilled()
@@ -100,7 +102,7 @@ public class Slayer : Class {
         GainResource(energyGainPerHit);
         if(isPoisonActive)
         {
-            UpdateHealth(damage, UpdateType.HEALING);
+            UpdateHealth((int)(damage *(hpScale+timeScale)), UpdateType.HEALING, true);
         }
         isPoisonActive = false;
         if(!notDead)

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class Warlock : Class {
+public class Sage : Class {
 
     [Header("Mana Settings")]
     [SerializeField]
@@ -21,24 +21,12 @@ public class Warlock : Class {
     protected float autoAttackRange = 5.0f;
     [SerializeField]
     float autoAttackProjectileSpeed = 3.0f;
-    [Header("Warlock Hellfire Settings")]
-    [SerializeField]
-    string hellfireName;
+    [Header("Sage Shield Settings")]
     [SerializeField]
     short hpPerHit = 1;
+    bool isShieldActive = false;
     [SerializeField]
-    short warlockSpecialCost = 5;
-
-    internal void HitEnemy(bool notDead, Entity e, bool special)
-    {
-        UpdateHealth(hpPerHit, UpdateType.HEALING);
-        HitEnemy(notDead, e);
-    }
-
-    [SerializeField]
-    protected float specialAttackRange = 5.0f;
-    [SerializeField]
-    float specialAttackProjectileSpeed = 1.0f;
+    GameObject shieldSprite;
     float manaRengen;
     float lastTick;
 
@@ -52,7 +40,7 @@ public class Warlock : Class {
             Projectile p = g.GetComponent<Projectile>();
             if (p == null) { return false; }
             g.SetActive(true);
-            p.transform.position = transform.root.position;
+            p.transform.position = transform.position;
             Vector3 direction = transform.root.up;
             float y = transform.root.eulerAngles.y;
             direction = Quaternion.Euler(0, 0, -y) * direction;
@@ -64,22 +52,10 @@ public class Warlock : Class {
 
     public override bool SpecialSkill()
     {
-        if ((lastTick + autoAttackSpeed) <= Time.time && SpendResource(warlockSpecialCost))
-        {
-            lastTick = Time.time;
-            GameObject g = projectilePool.GetPooledObject(hellfireName);
-            if (g == null) { return false; }
-            Projectile p = g.GetComponent<Projectile>();
-            if (p == null) { return false; }
-            g.SetActive(true);
-            p.transform.position = transform.root.position;
-            Vector3 direction = transform.root.up;
-            float y = transform.root.eulerAngles.y;
-            direction = Quaternion.Euler(0, 0, -y) * direction;
-            p.Setup(direction, specialAttackProjectileSpeed, specialAttackRange, transform.root.gameObject.GetComponent<Entity>());
-            return true;
-        }
-        return false;
+
+        isShieldActive = !isShieldActive;
+        shieldSprite.SetActive(!shieldSprite.activeInHierarchy);
+        return true;
     }
 
     // Use this for initialization
@@ -88,6 +64,7 @@ public class Warlock : Class {
         lastTick = Time.time;
         manaRengen = Time.time;
         projectilePool = GameObject.Find("ProjectilePool").GetComponent<ObjectPool>();
+        shieldSprite.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -99,6 +76,33 @@ public class Warlock : Class {
             GainResource(manaRegenValue);
         }
 	}
+
+    public override bool UpdateHealth(int change, UpdateType typeOfChange, bool showText)
+    {
+
+        if (!isShieldActive || typeOfChange == UpdateType.HEALING)
+        {
+            return base.UpdateHealth(change, typeOfChange, showText);
+        }else
+        {
+            if(SpendResource(change))
+            {
+                UpdateHealth(hpPerHit, UpdateType.HEALING, showText);
+            }else
+            {
+                TurnOffShield();
+                FloatingTextController.CreateFloatingText(change.ToString(), Color.blue);
+                return base.UpdateHealth(change, typeOfChange, false);
+            }
+            return true;
+        }
+    }
+
+    private void TurnOffShield()
+    {
+        isShieldActive = false;
+        shieldSprite.SetActive(false);
+    }
 
     public override void HitEnemy(bool notDead, Entity enemy)
     {

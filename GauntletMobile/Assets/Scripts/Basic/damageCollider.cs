@@ -14,12 +14,15 @@ public class damageCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.layer == 12)
+        {
+            return;
+        }
         GameObject g = collision.gameObject.transform.root.gameObject;
         Entity e = g.GetComponentInChildren<Entity>();
         if (e != null)
         {
-            Debug.Log(parent.name);
-            bool notDead = e.UpdateHealth(parent.GetDamage(), Entity.UpdateType.DAMAGE);
+            bool notDead = e.UpdateHealth(parent.GetDamage(), Entity.UpdateType.DAMAGE, true);
             parent.HitEnemy(notDead, e);
         }
         if (oneTimeUse)

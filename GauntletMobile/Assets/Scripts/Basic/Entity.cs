@@ -34,18 +34,20 @@ public abstract class Entity : MonoBehaviour {
 
     internal void HitEnemy(bool notDead, Entity e, bool v)
     {
-        throw new NotImplementedException();
+        HitEnemy(notDead, e);
     }
 
-    public virtual bool UpdateHealth(int change, UpdateType typeOfChange)
+    public virtual bool UpdateHealth(int change, UpdateType typeOfChange, bool showText)
     {
         if (typeOfChange == UpdateType.HEALING)
         {
             currentHealth += change;
+            if(showText)FloatingTextController.CreateFloatingText(change.ToString(), Color.green);
         }
         if (typeOfChange == UpdateType.DAMAGE)
         {
             currentHealth -= change;
+            if (showText)FloatingTextController.CreateFloatingText(change.ToString(), Color.red);
         }
         if (currentHealth <= 0)
         {
