@@ -18,7 +18,7 @@ public class WallDamage : MonoBehaviour {
             if (e.wallDamageTick + interval < Time.time)
             {
                 e.wallDamageTick = Time.time;
-                e.UpdateHealth(damage, Entity.UpdateType.DAMAGE);
+                e.UpdateHealth(damage, Entity.UpdateType.DAMAGE, true);
             }
         }
     }

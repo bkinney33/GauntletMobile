@@ -77,22 +77,22 @@ public class Sage : Class {
         }
 	}
 
-    public override bool UpdateHealth(int change, UpdateType typeOfChange)
+    public override bool UpdateHealth(int change, UpdateType typeOfChange, bool showText)
     {
-        Debug.Log("Before: " + currentHealth);
+
         if (!isShieldActive || typeOfChange == UpdateType.HEALING)
         {
-            return base.UpdateHealth(change, typeOfChange);
+            return base.UpdateHealth(change, typeOfChange, showText);
         }else
         {
             if(SpendResource(change))
             {
-                UpdateHealth(hpPerHit, UpdateType.HEALING);
-                Debug.Log("After: " + currentHealth);
+                UpdateHealth(hpPerHit, UpdateType.HEALING, showText);
             }else
             {
                 TurnOffShield();
-                return base.UpdateHealth(change, typeOfChange);
+                FloatingTextController.CreateFloatingText(change.ToString(), Color.blue);
+                return base.UpdateHealth(change, typeOfChange, false);
             }
             return true;
         }

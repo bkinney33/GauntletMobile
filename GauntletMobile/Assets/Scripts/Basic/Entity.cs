@@ -37,15 +37,17 @@ public abstract class Entity : MonoBehaviour {
         HitEnemy(notDead, e);
     }
 
-    public virtual bool UpdateHealth(int change, UpdateType typeOfChange)
+    public virtual bool UpdateHealth(int change, UpdateType typeOfChange, bool showText)
     {
         if (typeOfChange == UpdateType.HEALING)
         {
             currentHealth += change;
+            if(showText)FloatingTextController.CreateFloatingText(change.ToString(), Color.green);
         }
         if (typeOfChange == UpdateType.DAMAGE)
         {
             currentHealth -= change;
+            if (showText)FloatingTextController.CreateFloatingText(change.ToString(), Color.red);
         }
         if (currentHealth <= 0)
         {

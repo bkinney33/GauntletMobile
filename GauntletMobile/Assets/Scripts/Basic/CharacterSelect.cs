@@ -33,8 +33,14 @@ public class CharacterSelect : MonoBehaviour {
         Text t = g2.GetComponentInChildren<Text>();
         t.text = g.name;
         SetupCharacter();
+        FloatingTextController.Initialize();
 
 	}
+
+    public GameObject GetCanvas()
+    {
+        return newCanvas.gameObject;
+    }
 
     private void SetupCanvas()
     {

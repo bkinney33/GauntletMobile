@@ -22,7 +22,7 @@ public class EnemyMovement : MonoBehaviour {
     [Tooltip("How fast an enemy can travel")]
     [SerializeField]
     float moveSpeed;
-    bool inRange;
+    public bool inRange;
     // Use this for initialization
     void Start ()
     {

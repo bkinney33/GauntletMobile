@@ -65,7 +65,7 @@ public class Hunter : Class {
     }
     internal void HitEnemy(bool notDead, Entity e, bool special)
     {
-        UpdateHealth(hpPerHit, UpdateType.HEALING);
+        UpdateHealth(hpPerHit, UpdateType.HEALING, true);
         HitEnemy(notDead, e);
     }
     public void EnemyKilled()
