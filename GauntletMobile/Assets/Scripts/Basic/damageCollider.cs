@@ -14,6 +14,10 @@ public class damageCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.layer == 12)
+        {
+            return;
+        }
         GameObject g = collision.gameObject.transform.root.gameObject;
         Entity e = g.GetComponentInChildren<Entity>();
         if (e != null)

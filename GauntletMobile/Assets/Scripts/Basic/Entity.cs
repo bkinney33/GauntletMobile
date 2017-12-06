@@ -34,7 +34,7 @@ public abstract class Entity : MonoBehaviour {
 
     internal void HitEnemy(bool notDead, Entity e, bool v)
     {
-        throw new NotImplementedException();
+        HitEnemy(notDead, e);
     }
 
     public virtual bool UpdateHealth(int change, UpdateType typeOfChange)

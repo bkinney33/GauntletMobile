@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
         projectileRange = range;
         projectileSpeed = speed;
         m_rigidBody.velocity = direction * projectileSpeed;
-        damageCollider collider = gameObject.GetComponent<damageCollider>();
+        damageCollider collider = gameObject.GetComponentInChildren<damageCollider>();
         if (collider == null)
         {
             Debug.Log("Damage Collider = Null on Projectile.");

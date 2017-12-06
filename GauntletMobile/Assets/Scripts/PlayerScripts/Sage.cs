@@ -24,21 +24,12 @@ public class Sage : Class {
     [Header("Sage Shield Settings")]
     [SerializeField]
     short hpPerHit = 1;
-    [SerializeField]
-    short damageMax;
-    short currentDamage;
     bool isShieldActive = false;
-    GameObject shieldSprite;
     [SerializeField]
-    short sageSpecialCost = 5;
+    GameObject shieldSprite;
     float manaRengen;
     float lastTick;
 
-    internal void HitEnemy(bool notDead, Entity e, bool special)
-    {
-        UpdateHealth(hpPerHit, UpdateType.HEALING);
-        HitEnemy(notDead, e);
-    }
     public override bool AutoAttack()
     {
         if ((lastTick + autoAttackSpeed) <= Time.time)
@@ -49,7 +40,7 @@ public class Sage : Class {
             Projectile p = g.GetComponent<Projectile>();
             if (p == null) { return false; }
             g.SetActive(true);
-            p.transform.position = transform.root.position;
+            p.transform.position = transform.position;
             Vector3 direction = transform.root.up;
             float y = transform.root.eulerAngles.y;
             direction = Quaternion.Euler(0, 0, -y) * direction;
@@ -61,13 +52,10 @@ public class Sage : Class {
 
     public override bool SpecialSkill()
     {
-        if(SpendResource(sageSpecialCost))
-        {
-            currentDamage = 0;
-            isShieldActive = true;
-            shieldSprite.SetActive(true);
-        }
-        return false;
+
+        isShieldActive = !isShieldActive;
+        shieldSprite.SetActive(!shieldSprite.activeInHierarchy);
+        return true;
     }
 
     // Use this for initialization
@@ -76,7 +64,6 @@ public class Sage : Class {
         lastTick = Time.time;
         manaRengen = Time.time;
         projectilePool = GameObject.Find("ProjectilePool").GetComponent<ObjectPool>();
-        shieldSprite = transform.Find("SageShield").gameObject;
         shieldSprite.SetActive(false);
 	}
 	
@@ -92,16 +79,20 @@ public class Sage : Class {
 
     public override bool UpdateHealth(int change, UpdateType typeOfChange)
     {
+        Debug.Log("Before: " + currentHealth);
         if (!isShieldActive || typeOfChange == UpdateType.HEALING)
         {
             return base.UpdateHealth(change, typeOfChange);
         }else
         {
-            currentDamage += (short)change;
-            maxHealth += hpPerHit;
-            if(currentDamage >= damageMax)
+            if(SpendResource(change))
+            {
+                UpdateHealth(hpPerHit, UpdateType.HEALING);
+                Debug.Log("After: " + currentHealth);
+            }else
             {
                 TurnOffShield();
+                return base.UpdateHealth(change, typeOfChange);
             }
             return true;
         }
