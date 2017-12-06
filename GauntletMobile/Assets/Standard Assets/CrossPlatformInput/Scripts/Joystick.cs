@@ -32,7 +32,9 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         void Start()
         {
-            m_StartPos = transform.position;
+            Debug.Log(transform.position);
+            m_StartPos = new Vector3(132, 140, 0);
+            Debug.Log(m_StartPos);
         }
 
 		void UpdateVirtualAxes(Vector3 value)
@@ -95,7 +97,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 		public void OnPointerUp(PointerEventData data)
 		{
-			transform.position = m_StartPos;
+            Debug.Log(m_StartPos);
+            transform.position = m_StartPos;
 			UpdateVirtualAxes(m_StartPos);
 		}
 

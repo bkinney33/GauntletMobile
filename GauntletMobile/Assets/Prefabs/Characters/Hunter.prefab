@@ -228,17 +228,19 @@ MonoBehaviour:
   maxHealth: 10
   damage: 4
   autoAttackSpeed: 1
+  wallDamageTick: 0
   maxClassResource: 10
   currentClassResource: 0
   focusGainOnKill: 2
   projectilePool: {fileID: 0}
-  projectileName: 
+  projectileName: Hunter Auto
   autoAttackRange: 5
   autoAttackProjectileSpeed: 3
-  snipeShotProjectileName: 
+  snipeShotProjectileName: Hunter Snipe Shot
   hunterSpecialCost: 5
   specialAttackRange: 5
   specialAttackProjectileSpeed: 1
+  hpPerHit: 1
 --- !u!114 &114674011995869740
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -18,6 +18,7 @@ public class damageCollider : MonoBehaviour
         Entity e = g.GetComponentInChildren<Entity>();
         if (e != null)
         {
+            Debug.Log(parent.name);
             bool notDead = e.UpdateHealth(parent.GetDamage(), Entity.UpdateType.DAMAGE);
             parent.HitEnemy(notDead, e);
         }

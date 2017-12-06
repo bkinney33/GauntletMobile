@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4017451907065174}
   - component: {fileID: 114198906815113384}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   info:
-  - spawnableMob: {fileID: 0}
+    spawnableMob: {fileID: 0}
     minAndMaxRange: {x: 0, y: 0}
     timeBeforeSpawn: 0
     maxMobCount: 0
+    projectiles: {fileID: 0}
+  active: 0

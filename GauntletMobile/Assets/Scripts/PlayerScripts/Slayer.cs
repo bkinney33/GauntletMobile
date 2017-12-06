@@ -19,7 +19,7 @@ public class Slayer : Class {
     float poisonDuration;
     float poisonStartTime;
     GameObject collider;
-
+    private Animator animator;
     public override int GetDamage()
     {
         if (isPoisonActive) {
@@ -38,6 +38,7 @@ public class Slayer : Class {
     {
         Debug.Log("Auto On.");
         collider.SetActive(true);
+        animator.SetTrigger("autoAttack");
         StartCoroutine(TurnOffAttackCollider());
         return true;
     }
@@ -78,9 +79,11 @@ public class Slayer : Class {
     // Use this for initialization
     void Start () {
         base.Start();
+        animator = GetComponentInChildren<Animator>();
         collider = gameObject.transform.Find("AttackCollider").gameObject;
         poisonCover = gameObject.transform.Find("PoisonCover").gameObject;
         poisonCover.SetActive(false);
+        collider.SetActive(false);
     }
 
     public override bool UpdateHealth(int change, UpdateType typeOfChange)
