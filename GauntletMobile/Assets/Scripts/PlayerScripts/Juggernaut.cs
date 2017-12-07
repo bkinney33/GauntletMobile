@@ -19,32 +19,29 @@ public class Juggernaut : Class {
     short rageGainOnKill = 5;
     float lastTick;
     private Animator animator;
+    GameObject collider;
     void Start()
     {
         animator = GetComponentInChildren<Animator>();
         base.Start();
         rageCover = gameObject.transform.Find("RageCover").gameObject;
+        collider = gameObject.transform.Find("Body/AttackCollider").gameObject;
         rageCover.SetActive(false);
     }
 
     public override bool AutoAttack()
     {
-        
-        Debug.Log("Auto On.");
-        GameObject collider = gameObject.transform.Find("AttackCollider").gameObject;
+        if (collider.activeInHierarchy) { return false; }
         collider.SetActive(true);
         animator.SetTrigger("autoAttack");
         StartCoroutine(TurnOffAttackCollider());
-
         return true;
     }
 
     IEnumerator TurnOffAttackCollider()
     {
         yield return new WaitForSeconds(autoAttackSpeed);
-        GameObject collider = gameObject.transform.Find("AttackCollider").gameObject;
         collider.SetActive(false);
-        Debug.Log("Auto Off.");
     }
 
     public override bool SpecialSkill()

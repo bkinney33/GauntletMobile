@@ -51,7 +51,6 @@ public class CharacterSelect : MonoBehaviour {
     {
         Character currentCharacter = characters[selectedCharacter];
         Vector3 position = characterStart.position;
-        position.z = -1;
         newCharacter = Instantiate(currentCharacter.characterPrefab.gameObject, position, Quaternion.identity);
         GameObject healthBar = newCanvas.transform.Find("Simple/Bars/Healthbar").gameObject;
         Image health = healthBar.GetComponent<Image>();

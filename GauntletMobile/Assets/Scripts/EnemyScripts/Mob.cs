@@ -45,7 +45,6 @@ public abstract class Mob : Entity {
         float distance = Vector2.Distance(transform.position, target.position);
         if (autoAttackRange >= distance)
         {
-            Debug.Log("Auto");
             AutoAttack();
         }
     }

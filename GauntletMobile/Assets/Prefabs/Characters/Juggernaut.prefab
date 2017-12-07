@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 58757777217028090}
   m_Layer: 8
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 95213847812385124}
   m_Layer: 0
   m_Name: New Sprite (1)
-  m_TagString: Untagged
+  m_TagString: Juggernaut
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,21 +72,21 @@ GameObject:
   - component: {fileID: 212851088895735476}
   m_Layer: 8
   m_Name: New Sprite
-  m_TagString: Untagged
+  m_TagString: Juggernaut
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1381619475326324
+--- !u!1 &1449338597381792
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4786328511267716}
-  - component: {fileID: 60104419039191814}
-  - component: {fileID: 114208972588517066}
+  - component: {fileID: 4168218596068616}
+  - component: {fileID: 58629808345454400}
+  - component: {fileID: 114145050898476904}
   m_Layer: 9
   m_Name: AttackCollider
   m_TagString: Juggernaut
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 114779462382852446}
   m_Layer: 8
   m_Name: Juggernaut
-  m_TagString: Player
+  m_TagString: Juggernaut
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,6 @@ Transform:
   m_Children:
   - {fileID: 4500056363837726}
   - {fileID: 4099962387041360}
-  - {fileID: 4786328511267716}
   - {fileID: 4609665594546852}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -161,6 +160,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4086567748483232}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4168218596068616
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1449338597381792}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: -0.09999999, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4500056363837726}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4384988208468254
 Transform:
@@ -187,6 +199,7 @@ Transform:
   m_Children:
   - {fileID: 4791305475299956}
   - {fileID: 4384988208468254}
+  - {fileID: 4168218596068616}
   m_Father: {fileID: 4086567748483232}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -201,19 +214,6 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 4086567748483232}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4786328511267716
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1381619475326324}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4086567748483232}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4791305475299956
@@ -223,7 +223,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1317653871630470}
   m_LocalRotation: {x: -0, y: -0, z: 0.53161234, w: -0.84698784}
-  m_LocalPosition: {x: 0.005, y: -0.081, z: -1}
+  m_LocalPosition: {x: 0.005, y: -0.081, z: 0}
   m_LocalScale: {x: 1.0338964, y: 1.1525332, z: 1}
   m_Children: []
   m_Father: {fileID: 4500056363837726}
@@ -285,6 +285,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &58629808345454400
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1449338597381792}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!58 &58757777217028090
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -300,36 +315,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.08967161
---- !u!60 &60104419039191814
-PolygonCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1381619475326324}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.10567739, y: -0.20434421}
-      - {x: 0.075174816, y: -0.041614383}
-      - {x: -0.0018216446, y: -0.09009075}
-      - {x: -0.07771654, y: -0.035663873}
-      - {x: -0.114163056, y: -0.213118}
-      - {x: -0.0017428473, y: -0.27076355}
 --- !u!81 &81453513338308578
 AudioListener:
   m_ObjectHideFlags: 1
@@ -354,12 +339,12 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114208972588517066
+--- !u!114 &114145050898476904
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1381619475326324}
+  m_GameObject: {fileID: 1449338597381792}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4614d2441020e364898bfa4fdf66e0dd, type: 3}
@@ -421,9 +406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b7d0966c0f09947b1e06dd1458ee94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 114207632263331624, guid: ee63a7e22497f884a9ad373b9d04a01c,
-    type: 2}
-  manaBar: {fileID: 114013885723711368, guid: ee63a7e22497f884a9ad373b9d04a01c, type: 2}
+  healthBar: {fileID: 0}
+  manaBar: {fileID: 0}
 --- !u!124 &124413377598611408
 Behaviour:
   m_ObjectHideFlags: 1
