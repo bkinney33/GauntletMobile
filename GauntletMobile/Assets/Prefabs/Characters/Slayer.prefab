@@ -124,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4856420266389612}
   - component: {fileID: 60549262238736814}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: AttackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1087115548449414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4858681, y: 0.23565221, z: -0.03308519}
+  m_LocalPosition: {x: 31.63739, y: -37.428875, z: -0.03308519}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4791837530464826}
@@ -337,7 +337,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -355,7 +355,7 @@ PolygonCollider2D:
     - - {x: 0.052187443, y: -0.07489421}
       - {x: -0.052891135, y: -0.07642027}
       - {x: -0.076552354, y: -0.15944579}
-      - {x: -0.0021475158, y: -0.27393264}
+      - {x: 0.0022029877, y: -0.23477554}
       - {x: 0.07405357, y: -0.159374}
 --- !u!81 &81703540716658676
 AudioListener:

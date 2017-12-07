@@ -31,7 +31,7 @@ public class Hunter : Class {
     float specialAttackProjectileSpeed = 1.0f;
     [SerializeField]
     short hpPerHit = 1;
-
+    private Transform body;
 
     float lastTick;
 
@@ -47,7 +47,7 @@ public class Hunter : Class {
             if (p == null) { return false; }
             g.SetActive(true);
             p.transform.position = transform.root.position;
-            Vector3 direction = transform.root.up;
+            Vector3 direction = -body.up;
             float y = transform.root.eulerAngles.y;
             direction = Quaternion.Euler(0, 0, -y) * direction;
             p.Setup(direction, autoAttackSpeed, autoAttackRange, transform.root.gameObject.GetComponent<Entity>());
@@ -84,7 +84,7 @@ public class Hunter : Class {
             if (p == null) { return false; }
             g.SetActive(true);
             p.transform.position = transform.root.position;
-            Vector3 direction = transform.root.up;
+            Vector3 direction = -body.up;
             float y = transform.root.eulerAngles.y;
             direction = Quaternion.Euler(0, 0, -y) * direction;
             p.Setup(direction, specialAttackProjectileSpeed, specialAttackRange, transform.root.gameObject.GetComponent<Entity>());
@@ -96,6 +96,7 @@ public class Hunter : Class {
     // Use this for initialization
     void Start () {
         base.Start();
+        body = transform.Find("Body");
         projectilePool = GameObject.Find("ProjectilePool").GetComponent<ObjectPool>();
 	}
 	

@@ -235,7 +235,7 @@ MonoBehaviour:
   projectilePool: {fileID: 0}
   projectileName: Hunter Auto
   autoAttackRange: 5
-  autoAttackProjectileSpeed: 3
+  autoAttackProjectileSpeed: 8
   snipeShotProjectileName: Hunter Snipe Shot
   hunterSpecialCost: 5
   specialAttackRange: 5

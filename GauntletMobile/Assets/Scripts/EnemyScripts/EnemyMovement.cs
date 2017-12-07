@@ -41,7 +41,7 @@ public class EnemyMovement : MonoBehaviour {
         if (IsInAggroRange())
         {
             inRange = true;
-            self.LookAt(target);
+            //self.LookAt(target);
             if (IsInMaxRange())
             {
                 self.position += self.up * moveSpeed * Time.deltaTime;

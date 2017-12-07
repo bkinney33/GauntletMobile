@@ -9,8 +9,7 @@ public class ChangeSceneOnCollision : MonoBehaviour {
     [SerializeField]
     string newSceneName;
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+    void OnTriggerEnter2D(Collider2D collision) {
         LoadScene();
     }
 

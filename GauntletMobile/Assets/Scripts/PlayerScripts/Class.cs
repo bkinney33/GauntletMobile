@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(ResourceManager))]
 public abstract class Class : Entity {
@@ -24,6 +25,7 @@ public abstract class Class : Entity {
     {
 
         Debug.Log("How");
+        SceneManager.LoadScene("GameOver");
 
     }
 

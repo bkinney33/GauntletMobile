@@ -29,7 +29,7 @@ public class Sage : Class {
     GameObject shieldSprite;
     float manaRengen;
     float lastTick;
-
+    private Transform body;
     public override bool AutoAttack()
     {
         if ((lastTick + autoAttackSpeed) <= Time.time)
@@ -40,8 +40,8 @@ public class Sage : Class {
             Projectile p = g.GetComponent<Projectile>();
             if (p == null) { return false; }
             g.SetActive(true);
-            p.transform.position = transform.position;
-            Vector3 direction = transform.root.up;
+            p.transform.position = transform.root.position;
+            Vector3 direction = -body.up;
             float y = transform.root.eulerAngles.y;
             direction = Quaternion.Euler(0, 0, -y) * direction;
             p.Setup(direction, autoAttackProjectileSpeed, autoAttackRange, transform.root.gameObject.GetComponent<Entity>());
@@ -61,6 +61,7 @@ public class Sage : Class {
     // Use this for initialization
     void Start () {
         base.Start();
+        body = transform.Find("Body");
         lastTick = Time.time;
         manaRengen = Time.time;
         projectilePool = GameObject.Find("ProjectilePool").GetComponent<ObjectPool>();
