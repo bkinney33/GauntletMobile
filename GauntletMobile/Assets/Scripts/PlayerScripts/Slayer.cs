@@ -82,7 +82,7 @@ public class Slayer : Class {
     void Start () {
         base.Start();
         animator = GetComponentInChildren<Animator>();
-        collider = gameObject.transform.root.Find("Body/AttackCollider").gameObject;
+        collider = gameObject.transform.root.Find("AttackCollider").gameObject;
         poisonCover = gameObject.transform.Find("PoisonCover").gameObject;
         poisonCover.SetActive(false);
         collider.SetActive(false);

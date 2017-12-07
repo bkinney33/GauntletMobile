@@ -50,7 +50,7 @@ public class Hunter : Class {
             Vector3 direction = -body.up;
             float y = transform.root.eulerAngles.y;
             direction = Quaternion.Euler(0, 0, -y) * direction;
-            p.Setup(direction, autoAttackSpeed, autoAttackRange, transform.root.gameObject.GetComponent<Entity>());
+            p.Setup(direction, autoAttackProjectileSpeed, autoAttackRange, transform.root.gameObject.GetComponent<Entity>());
             return true;
         }
         return false;

@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 25
+  controlID: 68
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 26
+  controlID: 69
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 27
+  controlID: 70
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -364,9 +364,9 @@ MonoBehaviour:
     height: 531
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 8453feff0e54feff6255feff6655feff6a55feff6e55feff0082feff9082feffe483feffe883fefff083feff0484feffce88feff5e89feffb28afeffb68afeffbe8afeffd28afeffb2cbfeffb4cbfeff4edffeffd0dffeff24e1feff28e1feff30e1feff44e1feff84e3feff06e4feff5ce5feff60e5feff68e5feff7ce5feff4c02ffffd6bfffffbcc0ffff22c2ffff34c2ffff4ac2ffff6ac2ffff9cd5ffff1cd6ffff72d7ffff76d7ffff7ed7ffff90d7ffff06daffff86daffffe2dbffffeadbfffff6dbffff0cdcffffa4e6ffffa0fbffffa2fbffffa4fbffff00000000a8780000
+    m_SelectedIDs: e66bfbff
+    m_LastClickedID: -300058
+    m_ExpandedIDs: 9671fbff1e72fbff7473fbff3275fbff3c75fbff4075fbffa234fcff503efcff92a8fcff9aabfcff9cabfcff3af7fcff7cf9fcffe21cfdff241ffdff0423fdff9449fdff0c62fdff0e62fdff78ecfdff84ecfdffc6eefdff6878feff7478feffb67afeffda7ffeff6480feffba81feff7883feff8283feff8683feffa025ffff2a26ffff7e27ffff3c29ffff4629ffff4a29ffffc493ffff4e94ffffa495ffff6297ffff6c97ffff7097ffffbcaeffff44afffff9cb0ffff5ab2ffff64b2ffff68b2ffffa0fbffffa2fbffffa6fbffff00000000bc2e0000ba330000c4350000fa37000004380000243800007e3a0000883a0000663b0000b23b0000bc3b0000dc3b0000fe3b0000083c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -385,7 +385,7 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 8}
     m_SearchString: 
   m_ExpandedScenes:
-  - CharacterSelect
+  - MainMenu
   - Level1
   - GameOver
   m_CurrenRootInstanceID: 0
@@ -418,14 +418,14 @@ MonoBehaviour:
     width: 799
     height: 531
   m_SceneLighting: 1
-  lastFramingTime: 2203.5013042177775
+  lastFramingTime: 2743.768218727365
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 22.988886, y: -42.686115, z: -1.3691093}
+    m_Target: {x: 25.589157, y: -43.650387, z: 0}
     speed: 2
-    m_Value: {x: 22.988886, y: -42.686115, z: -1.3691093}
+    m_Value: {x: 25.589157, y: -43.650387, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -452,9 +452,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 10.467155
+    m_Target: 2.430411
     speed: 2
-    m_Value: 10.467155
+    m_Value: 2.430411
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -530,19 +530,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Prefabs/Characters
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Characters
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\bkinney\Documents\GauntletMobile\GauntletMobile
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c22c0000
-    m_LastClickedID: 11458
-    m_ExpandedIDs: 000000007e270000742c0000102d0000dc2d0000f42d00009a3200009c3200009e320000a032000000ca9a3bffffff7f
+    m_SelectedIDs: 7e270000
+    m_LastClickedID: 10110
+    m_ExpandedIDs: 000000007e270000742c00008e2c0000102d0000dc2d0000f42d00001233000014330000163300001833000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -570,7 +570,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007e270000742c0000102d0000dc2d0000f42d00009a3200009c3200009e320000a0320000
+    m_ExpandedIDs: 000000007e270000742c0000102d0000dc2d0000f42d000012330000143300001633000018330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
