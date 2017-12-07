@@ -96,6 +96,7 @@ public class Hunter : Class {
     // Use this for initialization
     void Start () {
         base.Start();
+        projectilePool = GameObject.Find("ProjectilePool").GetComponent<ObjectPool>();
 	}
 	
 	// Update is called once per frame
