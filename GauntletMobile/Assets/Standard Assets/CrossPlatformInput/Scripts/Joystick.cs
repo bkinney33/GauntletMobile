@@ -32,7 +32,6 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         void Start()
         {
-            Debug.Log(transform.position);
             m_StartPos = new Vector3(132, 140, 0);
             Debug.Log(m_StartPos);
         }

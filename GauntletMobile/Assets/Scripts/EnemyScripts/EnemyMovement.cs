@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour {
+public class EnemyMovement : MonoBehaviour
+{
 
-    [Tooltip("Allows us to toss this onto the brain of an enemy.")]
     [SerializeField]
-    Transform self;
+    Rigidbody2D rigidBody;
     [SerializeField]
     Transform target;
     [Tooltip("Minimum distance needed to be able to hit player.")]
@@ -24,10 +24,10 @@ public class EnemyMovement : MonoBehaviour {
     float moveSpeed;
     public bool inRange;
     // Use this for initialization
-    void Start ()
+    void Start()
     {
 
-	}
+    }
 
     public void SetTarget(Transform newTarget)
     {
@@ -37,31 +37,31 @@ public class EnemyMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if(target == null) { return; }
-        if (IsInAggroRange())
-        {
-            inRange = true;
-            //self.LookAt(target);
-            if (IsInMaxRange())
-            {
-                self.position += self.up * moveSpeed * Time.deltaTime;
-                inRange = false;
-            }
-            if (Vector3.Distance(self.position, target.position) < minDist)
-            {
-                self.position -= self.up * moveSpeed * Time.deltaTime;
-                inRange = false;
-            }
-        }
-    }
-    private bool IsInAggroRange()
-    {
-        float dist = Vector3.Distance(self.position, target.position);
-        return dist <= aggroRange ? true : false;
-    }
-    private bool IsInMaxRange()
-    {
-        float dist = Vector3.Distance(self.position, target.position);
-        return dist >= maxDist ? true : false;
+        rigidBody.velocity = new Vector2(0.001f, 0);
+        if (target == null) { return; }
+        //if (IsInAggroRange())
+        //{
+        //    inRange = true;
+        //    //self.LookAt(target);
+        //    if (IsInMaxRange())
+        //    {
+        //        //self.position += self.up * moveSpeed * Time.deltaTime;
+        //        inRange = false;
+        //    }
+        //if (Vector3.Distance(self.position, target.position) < minDist)
+        //{
+        //    self.position -= self.up * moveSpeed * Time.deltaTime;
+        //    inRange = false;
+        //}
     }
 }
+    //private bool IsInAggroRange()
+    //{
+    //    float dist = Vector3.Distance(self.position, target.position);
+    //    return dist <= aggroRange ? true : false;
+    //}
+    //private bool IsInMaxRange()
+    //{
+    //    float dist = Vector3.Distance(self.position, target.position);
+    //    return dist >= maxDist ? true : false;
+    //}

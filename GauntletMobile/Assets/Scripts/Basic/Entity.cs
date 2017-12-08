@@ -20,6 +20,27 @@ public abstract class Entity : MonoBehaviour {
     [SerializeField]
     protected float autoAttackSpeed;
     public float wallDamageTick;
+    public bool stunned;
+    float stunDuration;
+
+    public void StunMe(float duration)
+    {
+        if (stunned) { return; }
+        stunned = true;
+        PlayerMovement player = gameObject.GetComponent<PlayerMovement>();
+        if (player) { player.Stun(true); }
+        stunDuration = duration;
+        StartCoroutine(StunRemoval());
+
+    }
+
+    public IEnumerator StunRemoval()
+    {
+        yield return new WaitForSeconds(stunDuration);
+        stunned = false;
+        PlayerMovement player = gameObject.GetComponent<PlayerMovement>();
+        if (player) { player.Stun(false); }
+    }
 
     public abstract bool AutoAttack();
 

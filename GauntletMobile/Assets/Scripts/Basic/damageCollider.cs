@@ -12,8 +12,10 @@ public class damageCollider : MonoBehaviour
     [SerializeField]
     protected bool oneTimeUse = false;
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("attack");
         if(collision.gameObject.layer == 12)
         {
             return;
@@ -22,6 +24,7 @@ public class damageCollider : MonoBehaviour
         Entity e = g.GetComponentInChildren<Entity>();
         if (e != null)
         {
+            Debug.Log("Entity: " + e.name + " Parent: " + parent.name);
             bool notDead = e.UpdateHealth(parent.GetDamage(), Entity.UpdateType.DAMAGE, true);
             parent.HitEnemy(notDead, e);
         }

@@ -38,7 +38,7 @@ public class Slayer : Class {
 
     public override bool AutoAttack()
     {
-        Debug.Log("Auto On.");
+        if (collider.activeInHierarchy) { return false; }
         collider.SetActive(true);
         animator.SetTrigger("autoAttack");
         StartCoroutine(TurnOffAttackCollider());
@@ -49,7 +49,6 @@ public class Slayer : Class {
     {
         yield return new WaitForSeconds(autoAttackSpeed);
         collider.SetActive(false);
-        Debug.Log("Auto Off.");
     }
 
     public override bool SpecialSkill()
