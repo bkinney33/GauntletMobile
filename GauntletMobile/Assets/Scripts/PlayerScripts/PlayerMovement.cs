@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour {
     Rigidbody2D rigidBody;
     Transform body;
     Component transform;
+    private float savedSpeed;
+    private bool stunned;
 
     private void Start()
     {
@@ -33,6 +35,7 @@ public class PlayerMovement : MonoBehaviour {
    
         float h = playerSpeed * CrossPlatformInputManager.GetAxis("Horizontal");
         float v = playerSpeed * CrossPlatformInputManager.GetAxis("Vertical");
+        if (stunned) { return; }
         rigidBody.velocity = (new Vector2(h, v));
         float heading = Mathf.Atan2(CrossPlatformInputManager.GetAxis("Horizontal"),-CrossPlatformInputManager.GetAxis("Vertical"));
        
@@ -42,4 +45,17 @@ public class PlayerMovement : MonoBehaviour {
 
 
 }
+
+    internal void Stun(bool stun)
+    {
+        stunned = stun;
+        if (stun) {
+            savedSpeed = playerSpeed;
+            playerSpeed = 0;
+        }else
+        {
+            playerSpeed = savedSpeed;
+        }
+
+    }
 }
