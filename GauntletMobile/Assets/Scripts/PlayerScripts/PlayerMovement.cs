@@ -37,6 +37,9 @@ public class PlayerMovement : MonoBehaviour {
         float v = playerSpeed * CrossPlatformInputManager.GetAxis("Vertical");
         if (stunned) { return; }
         rigidBody.velocity = (new Vector2(h, v));
+        if (h == 0 && v == 0) {
+            return;
+        }
         float heading = Mathf.Atan2(CrossPlatformInputManager.GetAxis("Horizontal"),-CrossPlatformInputManager.GetAxis("Vertical"));
        
         transform.transform.rotation = Quaternion.Euler(0f, 0f, (((heading) * Mathf.Rad2Deg)));

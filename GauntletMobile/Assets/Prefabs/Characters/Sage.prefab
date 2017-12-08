@@ -395,9 +395,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e2320966e40f1479d5de1a9d4e8edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  damage: 3
-  autoAttackSpeed: 1
+  maxHealth: 25
+  damage: 5
+  autoAttackSpeed: 0.5
   wallDamageTick: 0
   stunned: 0
   maxClassResource: 30
@@ -407,7 +407,7 @@ MonoBehaviour:
   projectilePool: {fileID: 0}
   projectileName: Warlock Auto
   autoAttackRange: 5
-  autoAttackProjectileSpeed: 5
+  autoAttackProjectileSpeed: 10
   hpPerHit: 5
   shieldSprite: {fileID: 1902906308487536}
 --- !u!114 &114252656989223820
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eab588569a7355418cf40a479e0f71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 5
+  playerSpeed: 4
 --- !u!114 &114783672687637394
 MonoBehaviour:
   m_ObjectHideFlags: 1

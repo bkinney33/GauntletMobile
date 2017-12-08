@@ -51,6 +51,7 @@ public class Hunter : Class {
             float y = transform.root.eulerAngles.y;
             direction = Quaternion.Euler(0, 0, -y) * direction;
             p.Setup(direction, autoAttackProjectileSpeed, autoAttackRange, transform.root.gameObject.GetComponent<Entity>());
+            p.transform.rotation = body.rotation;
             return true;
         }
         return false;

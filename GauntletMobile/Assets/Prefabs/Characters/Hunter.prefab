@@ -306,17 +306,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f337a69291e4b1b45875ec20403dd428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  damage: 4
-  autoAttackSpeed: 1
+  maxHealth: 25
+  damage: 7
+  autoAttackSpeed: 0.5
   wallDamageTick: 0
+  stunned: 0
   maxClassResource: 10
   currentClassResource: 0
   focusGainOnKill: 2
   projectilePool: {fileID: 0}
   projectileName: Hunter Auto
   autoAttackRange: 5
-  autoAttackProjectileSpeed: 8
+  autoAttackProjectileSpeed: 10
   snipeShotProjectileName: Hunter Snipe Shot
   hunterSpecialCost: 5
   specialAttackRange: 5
@@ -357,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eab588569a7355418cf40a479e0f71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 5
+  playerSpeed: 4
 --- !u!124 &124285322953674592
 Behaviour:
   m_ObjectHideFlags: 1

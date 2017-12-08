@@ -356,9 +356,9 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 0.052187443, y: -0.07489421}
       - {x: -0.052891135, y: -0.07642027}
-      - {x: -0.076552354, y: -0.15944579}
-      - {x: 0.0022029877, y: -0.23477554}
-      - {x: 0.07405357, y: -0.159374}
+      - {x: -0.09501839, y: -0.11430614}
+      - {x: -0.008056005, y: -0.17937724}
+      - {x: 0.08841579, y: -0.11833827}
 --- !u!81 &81703540716658676
 AudioListener:
   m_ObjectHideFlags: 1
@@ -508,7 +508,7 @@ MonoBehaviour:
   energyGainPerHit: 1
   poisonActivationCost: 5
   poisonDuration: 5
-  poisonScaling: 3
+  poisonScaling: 5
 --- !u!114 &114693521534974924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -533,7 +533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eab588569a7355418cf40a479e0f71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 5
+  playerSpeed: 4
 --- !u!124 &124607134956160716
 Behaviour:
   m_ObjectHideFlags: 1

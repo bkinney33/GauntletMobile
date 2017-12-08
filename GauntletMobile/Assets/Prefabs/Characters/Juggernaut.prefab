@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1678536665479114
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,12 +324,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.03569158, y: 0.13525686}
-      - {x: -0.017359417, y: 0.13467574}
-      - {x: -0.09416962, y: 0.07985028}
+    - - {x: 0.05567678, y: 0.075299986}
+      - {x: -0.039843243, y: 0.07721687}
+      - {x: -0.09666824, y: 0.024889387}
       - {x: -0.09394582, y: -0.019819498}
       - {x: 0.11078644, y: -0.020007052}
-      - {x: 0.10703151, y: 0.07241417}
+      - {x: 0.10453288, y: 0.032442488}
 --- !u!81 &81453513338308578
 AudioListener:
   m_ObjectHideFlags: 1
@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eab588569a7355418cf40a479e0f71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 5
+  playerSpeed: 4
 --- !u!114 &114779462382852446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a24444de30242bd4c9231745146c1e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100000000000
+  maxHealth: 35
   damage: 10
   autoAttackSpeed: 1
   wallDamageTick: 0

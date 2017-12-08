@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1857709109229318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.285, y: 0.471, z: -0.03308519}
+  m_LocalPosition: {x: 7.36, y: 20.01, z: 0}
   m_LocalScale: {x: 2.2795095, y: 2.2795095, z: 2.2795095}
   m_Children:
   - {fileID: 4304659977792176}
@@ -113,15 +113,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aeae714a80383e49bf5769c649fa13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 35
   damage: 0
   autoAttackSpeed: 0
   wallDamageTick: 0
+  stunned: 0
   info:
     spawnableMob: {fileID: 1332956223019736, guid: 14fa7a0a082a81e4c87e8a0e7eee3a1d,
       type: 2}
     minAndMaxRange: {x: 0, y: 2}
-    timeBeforeSpawn: 1
+    timeBeforeSpawn: 0.45
     maxMobCount: 5
     projectiles: {fileID: 0}
   active: 0
