@@ -320,7 +320,7 @@ MonoBehaviour:
   snipeShotProjectileName: Hunter Snipe Shot
   hunterSpecialCost: 5
   specialAttackRange: 5
-  specialAttackProjectileSpeed: 1
+  specialAttackProjectileSpeed: 8
   hpPerHit: 1
 --- !u!114 &114674011995869740
 MonoBehaviour:
