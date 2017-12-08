@@ -23,7 +23,7 @@ public abstract class Entity : MonoBehaviour {
     public bool stunned;
     float stunDuration;
 
-    public void StunMe(float duration)
+    public virtual void StunMe(float duration)
     {
         if (stunned) { return; }
         stunned = true;

@@ -21,13 +21,15 @@ public class Slayer : Class {
     double hpScale, timeScale;
     GameObject collider;
     private Animator animator;
+    [SerializeField]
+    float poisonScaling;
 
     public override int GetDamage()
     {
         if (isPoisonActive) {
-            hpScale = 2 - (currentHealth / maxHealth);
+            hpScale = poisonScaling - (currentHealth / maxHealth);
             float time = Time.time - poisonStartTime;
-            timeScale = 2 - (time / poisonDuration);
+            timeScale = poisonScaling - (time / poisonDuration);
             return (int)(damage * (hpScale + timeScale));
         }
         else

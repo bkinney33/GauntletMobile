@@ -117,4 +117,12 @@ public class Sage : Class {
     {
         Debug.Log("Enemy Killed");
     }
+    public override void StunMe(float duration)
+    {
+        if (isShieldActive) {
+            return;
+        }
+        base.StunMe(duration);
+
+    }
 }

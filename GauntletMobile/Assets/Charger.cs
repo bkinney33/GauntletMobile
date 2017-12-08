@@ -50,6 +50,7 @@ public class Charger : Mob
 
     private void FixedUpdate()
     {
+       
         Vector2 position = new Vector2(self.position.x, self.position.y) + rigidBody.velocity;
         float d = Vector2.Distance(startPosition, position);
         if(d > ContainedRange)
@@ -73,6 +74,9 @@ public class Charger : Mob
     public override bool AutoAttack()
     {
         Vector2 position = UnityEngine.Random.insideUnitCircle;
+        self.LookAt(new Vector3(position.x, position.y) + self.position);
+        float y = self.rotation.eulerAngles.y;
+        self.Rotate(new Vector3(0, 1, 0), -y);
         rigidBody.velocity = position * chargeSpeed;
         lastPosition = self.position;
         collider.SetActive(true);
