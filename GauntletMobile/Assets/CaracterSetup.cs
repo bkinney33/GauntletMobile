@@ -16,6 +16,5 @@ public class CaracterSetup : MonoBehaviour {
         Text t = g2.GetComponent<Text>();
         c.name = t.text;
         c.characterID = characterID;
-        SceneManager.LoadScene("Level1");
     }
 }
