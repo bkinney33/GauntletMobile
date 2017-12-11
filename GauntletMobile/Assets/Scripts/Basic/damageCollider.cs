@@ -31,6 +31,7 @@ public class damageCollider : MonoBehaviour
         if (oneTimeUse)
         {
             transform.root.gameObject.SetActive(false);
+            Debug.Log("Projectile Deactivated");
         }
     }
 

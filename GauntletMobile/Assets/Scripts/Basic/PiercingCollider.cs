@@ -27,7 +27,7 @@ public class PiercingCollider : damageCollider {
         {
             if(e != null && entityCollision) { return; }
             if (phantomCollision) { return; }
-            Destroy(gameObject.transform.parent.gameObject);
+            transform.root.gameObject.SetActive(false);
         }
     }
 }

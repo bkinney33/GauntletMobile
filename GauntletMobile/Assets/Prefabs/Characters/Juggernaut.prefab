@@ -470,8 +470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a24444de30242bd4c9231745146c1e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 35
-  damage: 10
+  maxHealth: 30
+  damage: 8
   autoAttackSpeed: 1
   wallDamageTick: 0
   stunned: 0

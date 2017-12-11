@@ -20,15 +20,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Winner.unity
     guid: e3077cafe52493b4eb665b54c94eff36
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/HunterInfo.unity
-    guid: 88d0938adff54b745951d778aa53fe4f
+    guid: 153735c0683c44443840ad0be3e3eeb2
   - enabled: 1
     path: Assets/Scenes/JuggernautInfo.unity
-    guid: 956d66146b6e81142a73bf1757904ef4
+    guid: 7832fd02fe92d0947a690a2cb70fc0c6
   - enabled: 1
     path: Assets/Scenes/SageInfo.unity
-    guid: fad2ba79da9c4f447b47b05dac1e926c
+    guid: 826b0bec0d1f3c54fb66e21b292e503c
   - enabled: 1
     path: Assets/Scenes/SlayerInfo.unity
-    guid: bc2f676a349cc264587d1df9806cbb3e
+    guid: b4fabc8126c654a47acdef5797d5a593
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000

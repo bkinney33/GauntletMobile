@@ -26,6 +26,7 @@ public class Spawner : Entity {
 
 	// Use this for initialization
 	void Start () {
+        currentHealth = maxHealth;
         entityPool = new List<GameObject>();
 		for(int i = 0; i < info.maxMobCount; ++i)
         {

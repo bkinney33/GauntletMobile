@@ -10,6 +10,7 @@ public class Slayer : Class {
     short energyGainPerHit = 1;
     [Header("Poison Settings", order = 1)]
     GameObject poisonCover;
+    GameObject poisonCover1;
     [Tooltip("Energy Cost to Activate Poison Skill.")]
     [SerializeField]
     short poisonActivationCost;
@@ -30,6 +31,8 @@ public class Slayer : Class {
             hpScale = poisonScaling - (currentHealth / maxHealth);
             float time = Time.time - poisonStartTime;
             timeScale = poisonScaling - (time / poisonDuration);
+            poisonCover1.SetActive(false);
+            poisonCover.SetActive(false);
             return (int)(damage * (hpScale + timeScale));
         }
         else
@@ -61,6 +64,7 @@ public class Slayer : Class {
             isPoisonActive = true;
             poisonStartTime = Time.time;
             poisonCover.SetActive(true);
+            poisonCover1.SetActive(true);
             StartCoroutine(PoisonSkill());
             return true;
         }
@@ -76,6 +80,7 @@ public class Slayer : Class {
     private void TurnOffPoisonEffects()
     {
         isPoisonActive = false;
+        poisonCover1.SetActive(false);
         poisonCover.SetActive(false);
      }
 
@@ -83,9 +88,11 @@ public class Slayer : Class {
     void Start () {
         base.Start();
         animator = GetComponentInChildren<Animator>();
-        collider = gameObject.transform.root.Find("AttackCollider").gameObject;
-        poisonCover = gameObject.transform.Find("PoisonCover").gameObject;
+        collider = gameObject.transform.Find("Body/AttackCollider").gameObject;
+        poisonCover = gameObject.transform.Find("Body/New Sprite/PoisonCover").gameObject;
+        poisonCover1 = gameObject.transform.Find("Body/New Sprite1/PoisonCover1").gameObject;
         poisonCover.SetActive(false);
+        poisonCover1.SetActive(false);
         collider.SetActive(false);
     }
 

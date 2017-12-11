@@ -47,7 +47,14 @@ public class Juggernaut : Class {
     public override bool SpecialSkill()
     {
         Debug.Log("Special Skill");
-        isInvincible = !isInvincible;
+        if (isInvincible == true) {
+            isInvincible = false;
+        }
+        else if (isInvincible == false)
+        {
+            isInvincible = true;
+        }
+
         lastTick = Time.time;
         rageCover.SetActive(!rageCover.activeInHierarchy);
         return true;

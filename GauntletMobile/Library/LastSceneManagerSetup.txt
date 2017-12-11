@@ -1,16 +1,28 @@
 sceneSetups:
 - path: Assets/Scenes/MainMenu.unity
-  isLoaded: 1
-  isActive: 1
+  isLoaded: 0
+  isActive: 0
 - path: Assets/Scenes/CharacterSelect.unity
   isLoaded: 0
   isActive: 0
 - path: Assets/Scenes/Level1.unity
-  isLoaded: 0
-  isActive: 0
+  isLoaded: 1
+  isActive: 1
 - path: Assets/Scenes/Winner.unity
   isLoaded: 0
   isActive: 0
 - path: Assets/Scenes/GameOver.unity
+  isLoaded: 0
+  isActive: 0
+- path: Assets/Scenes/HunterInfo.unity
+  isLoaded: 0
+  isActive: 0
+- path: Assets/Scenes/JuggernautInfo.unity
+  isLoaded: 0
+  isActive: 0
+- path: Assets/Scenes/SageInfo.unity
+  isLoaded: 0
+  isActive: 0
+- path: Assets/Scenes/SlayerInfo.unity
   isLoaded: 0
   isActive: 0

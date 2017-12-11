@@ -49,7 +49,8 @@ public class Hunter : Class {
             p.transform.position = transform.root.position;
             Vector3 direction = -body.up;
             float y = transform.root.eulerAngles.y;
-            direction = Quaternion.Euler(0, 0, -y) * direction;
+            float x = transform.root.eulerAngles.x;
+            direction = Quaternion.Euler(-x, 0, y) * direction;
             p.Setup(direction, autoAttackProjectileSpeed, autoAttackRange, transform.root.gameObject.GetComponent<Entity>());
             p.transform.rotation = body.rotation;
             return true;
@@ -80,6 +81,7 @@ public class Hunter : Class {
         {
             lastTick = Time.time;
             GameObject g = projectilePool.GetPooledObject(snipeShotProjectileName);
+            Debug.Log(g.name);
             if (g == null) { return false; }
             Projectile p = g.GetComponent<Projectile>();
             if (p == null) { return false; }
@@ -87,8 +89,10 @@ public class Hunter : Class {
             p.transform.position = transform.root.position;
             Vector3 direction = -body.up;
             float y = transform.root.eulerAngles.y;
-            direction = Quaternion.Euler(0, 0, -y) * direction;
+            float x = transform.root.eulerAngles.x;
+            direction = Quaternion.Euler(x, 0, y) * direction;
             p.Setup(direction, specialAttackProjectileSpeed, specialAttackRange, transform.root.gameObject.GetComponent<Entity>());
+            p.transform.rotation = body.rotation;
             return true;
         }
         return false;
