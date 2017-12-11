@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4304659977792176}
-  - component: {fileID: 58986276284394826}
+  - component: {fileID: 61342481304397330}
   m_Layer: 10
   m_Name: Collision
   m_TagString: Untagged
@@ -87,8 +87,8 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
---- !u!58 &58986276284394826
-CircleCollider2D:
+--- !u!61 &61342481304397330
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -96,12 +96,22 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 0.3, y: 0.3}
+  m_EdgeRadius: 0
 --- !u!114 &114198906815113384
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,8 +132,8 @@ MonoBehaviour:
     spawnableMob: {fileID: 1332956223019736, guid: 14fa7a0a082a81e4c87e8a0e7eee3a1d,
       type: 2}
     minAndMaxRange: {x: 0, y: 2}
-    timeBeforeSpawn: 0.45
-    maxMobCount: 5
+    timeBeforeSpawn: 0.3
+    maxMobCount: 8
     projectiles: {fileID: 0}
   active: 0
 --- !u!212 &212510970481141892

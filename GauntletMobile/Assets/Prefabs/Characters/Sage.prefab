@@ -399,8 +399,8 @@ MonoBehaviour:
   damage: 5
   autoAttackSpeed: 0.5
   wallDamageTick: 0
-  stunned: 0
-  maxClassResource: 30
+  stunned: 1
+  maxClassResource: 15
   currentClassResource: 0
   manaRegenInterval: 1
   manaRegenValue: 1
@@ -408,7 +408,7 @@ MonoBehaviour:
   projectileName: Warlock Auto
   autoAttackRange: 5
   autoAttackProjectileSpeed: 10
-  hpPerHit: 5
+  hpPerHit: 2
   shieldSprite: {fileID: 1902906308487536}
 --- !u!114 &114252656989223820
 MonoBehaviour:

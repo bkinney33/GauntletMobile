@@ -213,7 +213,7 @@ MonoBehaviour:
   stunned: 0
   scoreAwarded: 0
   autoAttackRange: 0
-  interval: 3
+  interval: 1
   range: 3
   ContainedRange: 8
   chargeSpeed: 10

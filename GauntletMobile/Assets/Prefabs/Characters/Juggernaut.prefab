@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1678536665479114
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1678536665479114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.425617, y: -31.066751, z: -0.03308519}
+  m_LocalPosition: {x: 8.647396, y: -3.5197937, z: -0.03308519}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4500056363837726}
@@ -324,8 +324,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.05567678, y: 0.075299986}
-      - {x: -0.039843243, y: 0.07721687}
+    - - {x: 0.048880577, y: 0.053212725}
+      - {x: -0.050037384, y: 0.053430565}
       - {x: -0.09666824, y: 0.024889387}
       - {x: -0.09394582, y: -0.019819498}
       - {x: 0.11078644, y: -0.020007052}
@@ -477,9 +477,9 @@ MonoBehaviour:
   stunned: 0
   maxClassResource: 10
   currentClassResource: 0
-  rageCostPerSecond: 1
+  rageCostPerSecond: 2
   hpRegen: 1
-  rageGainOnKill: 5
+  rageGainOnKill: 3
 --- !u!114 &114861897633136216
 MonoBehaviour:
   m_ObjectHideFlags: 1
